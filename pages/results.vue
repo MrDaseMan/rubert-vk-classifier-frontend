@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper" v-if="isLoaded">
         <h1>Предполагаемое направление: <span>{{ getEduProgram }}</span></h1>
         <h2>Рекомендуемые для сдачи предметы ЕГЭ:</h2>
         <ul>
@@ -14,10 +14,14 @@
 const getEduProgram = computed(() => useResults().value?.edu_program || "");
 const getSubjects = computed(() => useResults().value?.subjects || []);
 
+const isLoaded = ref(false);
+
 onMounted(() => {
     if(!useResults().value) {
         useRouter().push("/");
     }
+
+    isLoaded.value = true;
 })
 </script>
 
