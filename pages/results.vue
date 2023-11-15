@@ -1,13 +1,15 @@
 <template>
-    <div class="wrapper" v-if="isLoaded">
-        <h1>Предполагаемое направление: <span>{{ getEduProgram }}</span></h1>
-        <h2>Рекомендуемые для сдачи предметы ЕГЭ:</h2>
-        <ul>
-            <li v-for="subject in getSubjects">{{ subject }}</li>
-        </ul>
+    <transition name="slide-fade">
+        <div class="wrapper" v-if="isLoaded">
+            <h1>Предполагаемое направление: <span>{{ getEduProgram }}</span></h1>
+            <h2>Рекомендуемые для сдачи предметы ЕГЭ:</h2>
+            <ul>
+                <li v-for="subject in getSubjects">{{ subject }}</li>
+            </ul>
 
-        <p>Более подробно с направлениями подготовками, а также программами обучения вы сможете ознакомиться на сайте <a href="https://asu.edu.ru/sveden/education/" target="_blank">университета</a>.</p>
-    </div>
+            <p>Более подробно с направлениями подготовками, а также программами обучения вы сможете ознакомиться на сайте <a href="https://asu.edu.ru/sveden/education/" target="_blank">университета</a>.</p>
+        </div>
+    </transition>
 </template>
 
 <script setup>
@@ -18,7 +20,7 @@ const isLoaded = ref(false);
 
 onMounted(() => {
     isLoaded.value = false;
-    
+
     if(!useResults().value) {
         useRouter().push("/");
     }
