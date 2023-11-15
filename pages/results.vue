@@ -17,6 +17,8 @@ const getSubjects = computed(() => useResults().value?.subjects || []);
 const isLoaded = ref(false);
 
 onMounted(() => {
+    isLoaded.value = false;
+    
     if(!useResults().value) {
         useRouter().push("/");
     }

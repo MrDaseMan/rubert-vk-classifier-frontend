@@ -70,7 +70,8 @@ const isStep2 = ref(false);
 const isPredictionLoading = ref(false);
 
 onMounted(() => {
-    isLoadedTitle.value = true;
+    isLoadedTitle.value = false;
+    isStep2.value = false;
 
     setTimeout(() => {
         isStep1.value = true;
@@ -84,6 +85,8 @@ onMounted(() => {
             }, 500)
         }, 500)
     }
+
+    isLoadedTitle.value = true;
 })
 
 const auth = () => {

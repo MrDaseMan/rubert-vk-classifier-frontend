@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper" v-if="isLoaded">
         <h1>Сомневаешься в выборе направления подготовки? <span>«Твой путь»</span> поможет тебе с этим!</h1>
         <p>Наша нейросетевая предскажет направление твоей будущей карьеры. Мы используем передовую нейросетевую технологию, чтобы, основываясь на основе твоих предпочтенияй помочь определиться с выбором.
         </p>
@@ -9,6 +9,13 @@
 </template>
 
 <script setup>
+const isLoaded = ref(false);
+
+onMounted(() => {
+    isLoaded.value = false;
+
+    isLoaded.value = true;
+})
 </script>
 
 <style lang="scss">
