@@ -106,44 +106,44 @@ const auth = () => {
 }
 
 const getGroups = async () => {
-    // isPredictionLoading.value = true;
-    // let result = await useGetGroups();
-    // if (result.result.group && result.result.questions) {
-    //     predicted_group.value = ('00'+result.result.group).slice(-2);
-    //     console.log(result.result.questions);
-    //     result.result.questions.forEach(question => {
-    //         questions.value.push({
-    //             question: question.question,
-    //             group: ('00' + question.group).slice(-2),
-    //             answer: 0
-    //         })
-    //     })
-    // }
+    isPredictionLoading.value = true;
+    let result = await useGetGroups();
+    if (result.result.group && result.result.questions) {
+        predicted_group.value = ('00'+result.result.group).slice(-2);
+        console.log(result.result.questions);
+        // result.result.questions.forEach(question => {
+        //     questions.value.push({
+        //         question: question.question,
+        //         group: ('00' + question.group).slice(-2),
+        //         answer: 0
+        //     })
+        // })
 
-    // setTimeout(() => {
-    //     step3.value.scrollIntoView({ behavior: 'smooth' });
-    // }, 500)
+        //TODO: remove fake data
+        questions.value = [
+            {
+                question: "Тестовый вопрос 1",
+                group: "01",
+                answer: 0
+            },
+            {
+                question: "Тестовый вопрос 2",
+                group: "01",
+                answer: 0
+            },
+            {
+                question: "Тестовый вопрос 3",
+                group: "01",
+                answer: 0
+            }
+        ]
+    }
 
-    // isPredictionLoading.value = false;
+    setTimeout(() => {
+        step3.value.scrollIntoView({ behavior: 'smooth' });
+    }, 500)
 
-    // Add fake data
-    questions.value = [
-        {
-            question: "Тестовый вопрос 1",
-            group: "01",
-            answer: 0
-        },
-        {
-            question: "Тестовый вопрос 2",
-            group: "01",
-            answer: 0
-        },
-        {
-            question: "Тестовый вопрос 3",
-            group: "01",
-            answer: 0
-        }
-    ]
+    isPredictionLoading.value = false;
 }
 
 const getReport = async () => {
