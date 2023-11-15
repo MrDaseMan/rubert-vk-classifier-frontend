@@ -3,7 +3,7 @@ export const useGetGroups = async () => {
     let _error = null;
     let _status = false;
 
-    let _response = await useFetch(useRuntimeConfig().public.apiUrl + "/api/group", {
+    let _response = await useFetch(useRuntimeConfig().public.apiUrl + "/edu/group?id_vk=" + useUser().value.id || "", {
         method: "GET",
         onResponseError: (error) => {
             _error = error;

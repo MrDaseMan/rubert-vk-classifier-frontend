@@ -17,8 +17,9 @@
             <div class="wrapper__step" ref="step2" v-if="useUser().value.id && isStep2">
                 <h2>2. Наша нейросеть определит твою группу направлений</h2>
                 <p>Нажми на кнопку ниже и мы определим группу направлений, которая подходит тебе. Группа определяется на основе твоих предпочтений (подписок на твоей странице) и ещё некоторых факторов.</p>
-                <button @click="getGroups" v-if="!predicted_group">Получить группу</button>
-                <p v-else>Твоя группа: <span>{{ predicted_group }}</span></p>
+                <button @click="getGroups" v-if="!predicted_group && !isPredictionLoading">Получить группу</button>
+                <p v-else-if="!isPredictionLoading">Твоя группа: <span>{{ predicted_group }}</span></p>
+                <Loader v-else/>
             </div>
         </transition>
 
@@ -66,6 +67,8 @@ const isLoadedTitle = ref(false);
 const isStep1 = ref(false);
 const isStep2 = ref(false);
 
+const isPredictionLoading = ref(false);
+
 onMounted(() => {
     isLoadedTitle.value = true;
 
@@ -103,33 +106,25 @@ const auth = () => {
 }
 
 const getGroups = async () => {
-    //TODO: Remove
-    predicted_group.value = "Тестовая группа";
-    questions.value = [{
-        question: "Тестовый вопрос",
-        group: "Тестовая группа",
-        answer: 0
-    },
-    {
-        question: "Тестовый вопрос 2",
-        group: "Тестовая группа 2",
-        answer: 0
-    }];
+    isPredictionLoading.value = true;
+    let result = await useGetGroups();
+    if (result.result.group && result.result.questions) {
+        predicted_group.value = ('00'+result.result.group).slice(-2);
+        console.log(result.result.questions);
+        result.result.questions.forEach(question => {
+            questions.value.push({
+                question: question.question,
+                group: ('00' + question.group).slice(-2),
+                answer: 0
+            })
+        })
+    }
 
     setTimeout(() => {
         step3.value.scrollIntoView({ behavior: 'smooth' });
     }, 500)
 
-    return;
-
-    let result = await useUser();
-    if (result.group && result.questions) {
-        predicted_group.value = result.group;
-        questions.value = {
-            answer: 0,
-            ...result.questions
-        };
-    }
+    isPredictionLoading.value = false;
 }
 
 const getReport = async () => {
