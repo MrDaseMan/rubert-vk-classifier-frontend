@@ -153,7 +153,8 @@ const getReport = async () => {
     //TODO: Remove
     result.value = {
         edu_program: "Тестовое направление",
-        subjects: ["Тестовый предмет 1", "Тестовый предмет 2", "Тестовый предмет 3"]
+        subjects: ["Тестовый предмет 1", "Тестовый предмет 2", "Тестовый предмет 3"],
+        professions: ["Тестовая профессия 1", "Тестовая профессия 2", "Тестовая профессия 3"]
     };
     useResults().value = result.value;
     useRouter().push('/results');

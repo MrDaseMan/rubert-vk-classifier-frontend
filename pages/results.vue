@@ -8,6 +8,11 @@
             </ul>
 
             <p>Более подробно с направлениями подготовками, а также программами обучения вы сможете ознакомиться на сайте <a href="https://asu.edu.ru/sveden/education/" target="_blank">университета</a>.</p>
+        
+            <h2>Потенциальные профессии:</h2>
+            <ul>
+                <li v-for="profession in getProfessions">{{ profession }}</li>
+            </ul>
         </div>
     </transition>
 </template>
@@ -15,6 +20,7 @@
 <script setup>
 const getEduProgram = computed(() => useResults().value?.edu_program || "");
 const getSubjects = computed(() => useResults().value?.subjects || []);
+const getProfessions = computed(() => useResults().value?.professions || []);
 
 const isLoaded = ref(false);
 
