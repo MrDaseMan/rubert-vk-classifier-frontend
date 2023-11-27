@@ -1,8 +1,26 @@
 :root {
     --yw-clr-red: #b50034;
+    --yw-clr-red-50: #db2256;
+    --yw-clr-light-pink: #e4b8c2;
     --yw-clr-blue: #0273bb;
+    --yw-clr-light-blue: #d9ebf5f1;
+    --yw-clr-light-blue-50: #D9EBF5;
+
     --yw-clr-black: #191919;
+    --yw-clr-black-60: rgba(25, 25, 25, 0.6);
+    --yw-clr-black-50: rgba(25, 25, 25, 0.5);
+    --yw-clr-black-40: rgba(25, 25, 25, 0.4);
+    --yw-clr-black-30: rgba(25, 25, 25, 0.3);
+    --yw-clr-black-20: rgba(25, 25, 25, 0.2);
+    --yw-clr-black-10: rgba(25, 25, 25, 0.1);
+
     --yw-clr-white: #ffffff;
+    --yw-clr-white-60: rgba(255, 255, 255, 0.6);
+    --yw-clr-white-50: rgba(255, 255, 255, 0.5);
+    --yw-clr-white-40: rgba(255, 255, 255, 0.4);
+    --yw-clr-white-30: rgba(255, 255, 255, 0.3);
+    --yw-clr-white-20: rgba(255, 255, 255, 0.2);
+    --yw-clr-white-10: rgba(255, 255, 255, 0.1);
     
     --yw-clr-background: var(--yw-clr-white);
     --yw-clr-text-title: var(--yw-clr-black);

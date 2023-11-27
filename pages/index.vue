@@ -1,13 +1,9 @@
 <template>
-    <transition name="slide-fade">
-        <div class="wrapper" v-if="isLoaded">
-            <h1>Сомневаешься в выборе направления подготовки? <span>«Твой путь»</span> поможет тебе с этим!</h1>
-            <p>Наша нейросетевая модель предскажет направление твоей будущей карьеры. Мы используем передовую нейросетевую технологию, чтобы, основываясь на твоих предпочтениях, помочь определиться с выбором.
-            </p>
-            <p>После прохождения теста, мы предоставим детальный отчет с рекомендациями по выбору специальности и необходимым предметам для сдачи на ЕГЭ.</p>
-            <button @click="$router.push('/begin')">Начать</button>
-        </div>
-    </transition>
+    <div class="landing">
+        <LandingPreview/>
+        <LandingSteps/>
+        <LandingFAQ/>
+    </div>
 </template>
 
 <script setup>
@@ -20,18 +16,15 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss">
-.wrapper {
-    width: 100%;
-    height: 100%;
+<style lang="scss" scoped>
+.landing {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-content: flex-start;
-    gap: 20px;
+    align-items: center;
 
-    & > button {
-        align-self: flex-start;
-    }
+    width: 100%;
+    height: 100%;
+
+    gap: 78px;
 }
 </style>
