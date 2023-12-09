@@ -3,11 +3,11 @@ export const usePostProgram = async (questions: Array<any>) => {
     let _error = null;
     let _status = false;
 
-    let _response = await useFetch(useRuntimeConfig().public.apiUrl + "/api/program", {
+    let _response = await useFetch(useRuntimeConfig().public.apiUrl + "/edu/program/", {
         method: "POST",
-        body: {
-            questions: questions
-        },
+        body: [
+            ...questions
+        ],
         onResponseError: (error) => {
             _error = error;
             _status = false;

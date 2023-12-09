@@ -1,7 +1,7 @@
 <template>
     <div class="steps">
         <div class="steps__left">
-                <div class="steps__block">
+                <div class="steps__block" ref="firstStepLeft">
                     <div class="steps__block__content">
                         <h2>Авторизуйся через ВК</h2>
                         <p>Мы соберем ваши данные и передадим их в нейросеть</p>
@@ -10,11 +10,8 @@
                         <LazySvgFirstStep/>
                     </div>
                     <LazySvgBgVk/>
-                    <transition name="left-slide-fade" >
-                        <div class="steps__block--empty" ref="firstStepLeft" v-if="!isFirstStepLeftVisible"></div>
-                    </transition>
                 </div>
-                <div class="steps__block">
+                <div class="steps__block" ref="thirdStepLeft">
                     <div class="steps__block__content">
                         <h2>Получи группу направлений</h2>
                         <p>Нейросеть на основе ваших подписок и других данных предскажет к какой группе направлений вы подходите</p>
@@ -23,14 +20,11 @@
                         <LazySvgThirdStep/>
                     </div>
                     <LazySvgBgStars/>
-                    <transition name="left-slide-fade" >
-                        <div class="steps__block--empty" ref="thirdStepLeft" v-if="!isThirdStepLeftVisible"></div>
-                    </transition>
                 </div>
             <button @click="$router.push('/auth')">Попробовать нейросеть</button>
         </div>
         <div class="steps__right">
-            <div class="steps__block">
+            <div class="steps__block" ref="secondStepRight">
                 <div class="steps__block__content">
                     <h2>Пройди небольшой тест</h2>
                     <p>На основе ответов мы дадим более детальную информацию о рекомендуемом направление</p>
@@ -39,11 +33,8 @@
                     <LazySvgSecondStep/>
                 </div>
                 <LazySvgBgBrain/>
-                <transition name="right-slide-fade">
-                    <div class="steps__block--empty" ref="secondStepRight" v-if="!isSecondStepRightVisible"></div>
-                </transition>
             </div>
-            <div class="steps__block">
+            <div class="steps__block" ref="fourthStepRight">
                 <div class="steps__block__content">
                     <h2>Получи подробный результат</h2>
                     <p>Направление подготовки бакалавриата, список профессий и предметы ЕГЭ</p>
@@ -52,13 +43,10 @@
                     <LazySvgFourthStep/>
                 </div>
                 <LazySvgBgExp/>
-                <transition name="right-slide-fade">
-                    <div class="steps__block--empty" ref="fourthStepRight" v-if="!isFourthStepRightVisible"></div>
-                </transition>
             </div>
         </div>
         <div class="steps__together">
-            <div class="steps__block">
+            <div class="steps__block" ref="firstStepTogether">
                 <div class="steps__block__content">
                     <h2>Авторизуйся через ВК</h2>
                     <p>Мы соберем ваши данные и передадим их в нейросеть</p>
@@ -67,11 +55,8 @@
                     <LazySvgFirstStep/>
                 </div>
                 <LazySvgBgVk/>
-                <transition name="right-slide-fade">
-                    <div class="steps__block--empty" ref="firstStepTogether" v-if="!isFirstStepTogetherVisible"></div>
-                </transition>
             </div>
-            <div class="steps__block">
+            <div class="steps__block" ref="secondStepTogether">
                 <div class="steps__block__content">
                     <h2>Пройди небольшой тест</h2>
                     <p>На основе ответов мы дадим более детальную информацию о рекомендуемом направление</p>
@@ -80,11 +65,8 @@
                     <LazySvgSecondStep/>
                 </div>
                 <LazySvgBgBrain/>
-                <transition name="left-slide-fade">
-                    <div class="steps__block--empty" ref="secondStepTogether" v-if="!isSecondStepTogetherVisible"></div>
-                </transition>
             </div>
-            <div class="steps__block">
+            <div class="steps__block" ref="thirdStepTogether">
                 <div class="steps__block__content">
                     <h2>Получи группу направлений</h2>
                     <p>Нейросеть на основе ваших подписок и других данных предскажет к какой группе направлений вы подходите</p>
@@ -93,11 +75,8 @@
                     <LazySvgThirdStep/>
                 </div>
                 <LazySvgBgStars/>
-                <transition name="right-slide-fade">
-                    <div class="steps__block--empty" ref="thirdStepTogether" v-if="!isThirdStepTogetherVisible"></div>
-                </transition>
             </div>
-            <div class="steps__block">
+            <div class="steps__block" ref="fourthStepTogether">
                 <div class="steps__block__content">
                     <h2>Получи подробный результат</h2>
                     <p>Направление подготовки бакалавриата, список профессий и предметы ЕГЭ</p>
@@ -106,9 +85,6 @@
                     <LazySvgFourthStep/>
                 </div>
                 <LazySvgBgExp/>
-                <transition name="left-slide-fade">
-                    <div class="steps__block--empty" ref="fourthStepTogether" v-if="!isFourthStepTogetherVisible"></div>
-                </transition>
             </div>
             <button @click="$router.push('/auth')">Попробовать нейросеть</button>
         </div>
@@ -124,36 +100,34 @@ const firstStepTogether = ref(null);
 const secondStepTogether = ref(null);
 const thirdStepTogether = ref(null);
 const fourthStepTogether = ref(null);
-
-const isFirstStepLeftVisible = ref(false);
-const isThirdStepLeftVisible = ref(false);
-const isSecondStepRightVisible = ref(false);
-const isFourthStepRightVisible = ref(false);
-const isFirstStepTogetherVisible = ref(false);
-const isSecondStepTogetherVisible = ref(false);
-const isThirdStepTogetherVisible = ref(false);
-const isFourthStepTogetherVisible = ref(false);
-
 onMounted(() => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 if (entry.target === firstStepLeft.value) {
-                    isFirstStepLeftVisible.value = true;
+                    firstStepLeft.value.classList.remove('bottom-slide-fade-hidden');
+                    firstStepLeft.value.classList.add('bottom-slide-fade');
                 } else if (entry.target === thirdStepLeft.value) {
-                    isThirdStepLeftVisible.value = true;
+                    thirdStepLeft.value.classList.remove('bottom-slide-fade-hidden');
+                    thirdStepLeft.value.classList.add('bottom-slide-fade');
                 } else if (entry.target === secondStepRight.value) {
-                    isSecondStepRightVisible.value = true;
+                    secondStepRight.value.classList.remove('bottom-slide-fade-hidden');
+                    secondStepRight.value.classList.add('bottom-slide-fade');
                 } else if (entry.target === fourthStepRight.value) {
-                    isFourthStepRightVisible.value = true;
+                    fourthStepRight.value.classList.remove('bottom-slide-fade-hidden');
+                    fourthStepRight.value.classList.add('bottom-slide-fade');
                 } else if (entry.target === firstStepTogether.value) {
-                    isFirstStepTogetherVisible.value = true;
+                    firstStepTogether.value.classList.remove('bottom-slide-fade-hidden');
+                    firstStepTogether.value.classList.add('bottom-slide-fade');
                 } else if (entry.target === secondStepTogether.value) {
-                    isSecondStepTogetherVisible.value = true;
+                    secondStepTogether.value.classList.remove('bottom-slide-fade-hidden');
+                    secondStepTogether.value.classList.add('bottom-slide-fade');
                 } else if (entry.target === thirdStepTogether.value) {
-                    isThirdStepTogetherVisible.value = true;
+                    thirdStepTogether.value.classList.remove('bottom-slide-fade-hidden');
+                    thirdStepTogether.value.classList.add('bottom-slide-fade');
                 } else if (entry.target === fourthStepTogether.value) {
-                    isFourthStepTogetherVisible.value = true;
+                    fourthStepTogether.value.classList.remove('bottom-slide-fade-hidden');
+                    fourthStepTogether.value.classList.add('bottom-slide-fade');
                 }
             }
         })
@@ -161,27 +135,35 @@ onMounted(() => {
 
     if(firstStepLeft.value) {
         observer.observe(firstStepLeft.value);
+        firstStepLeft.value.classList.add('bottom-slide-fade-hidden');
     }
     if(thirdStepLeft.value) {
         observer.observe(thirdStepLeft.value);
+        thirdStepLeft.value.classList.add('bottom-slide-fade-hidden');
     }
     if(secondStepRight.value) {
         observer.observe(secondStepRight.value);
+        secondStepRight.value.classList.add('bottom-slide-fade-hidden');
     }
     if(fourthStepRight.value) {
         observer.observe(fourthStepRight.value);
+        fourthStepRight.value.classList.add('bottom-slide-fade-hidden');
     }
     if(firstStepTogether.value) {
         observer.observe(firstStepTogether.value);
+        firstStepTogether.value.classList.add('bottom-slide-fade-hidden');
     }
     if(secondStepTogether.value) {
         observer.observe(secondStepTogether.value);
+        secondStepTogether.value.classList.add('bottom-slide-fade-hidden');
     }
     if(thirdStepTogether.value) {
         observer.observe(thirdStepTogether.value);
+        thirdStepTogether.value.classList.add('bottom-slide-fade-hidden');
     }
     if(fourthStepTogether.value) {
         observer.observe(fourthStepTogether.value);
+        fourthStepTogether.value.classList.add('bottom-slide-fade-hidden');
     }
     
 })
@@ -404,19 +386,25 @@ onMounted(() => {
     }
 }
 
-.left-slide-fade-enter-active, .left-slide-fade-leave-active {
-    transition: all 3s ease;
+.bottom-slide-fade {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    animation-name: bottom-slide-fade;
+
+    &-hidden {
+        opacity: 0;
+    }
 }
 
-.left-slide-fade-enter-from, .left-slide-fade-leave-to {
-    transform: translate3d(100%, 0, 0);
-}
+@keyframes bottom-slide-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
 
-.right-slide-fade-enter-active, .right-slide-fade-leave-active {
-    transition: all 3s ease;
-}
-
-.right-slide-fade-enter-from, .right-slide-fade-leave-to {
-    transform: translate3d(-100%, 0, 0);
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
