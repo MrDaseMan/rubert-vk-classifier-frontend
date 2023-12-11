@@ -154,8 +154,38 @@ onMounted(() => {
     border-radius: 32px;
 
     &-error {
-        color: var(--yw-clr-red);
-        border-color: var(--yw-clr-red);
+        position: fixed;
+        top: 32px;
+        left: 50%;
+        transform: translate3D(-50%, 0, 0);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 8px;
+        padding: 24px;
+
+        width: fit-content;
+
+        z-index: 999;
+
+        background: var(--yw-clr-white);
+
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: -0.5px;
+
+        // soft green
+        border: 3px solid var(--yw-clr-red);
+
+        box-shadow: 0px 4px 40px 0px rgba(10, 51, 75, 0.06);
+
+        padding: 8px 16px;
+
+        border-radius: 32px;
     }
 }
 

@@ -63,6 +63,10 @@ const auth = () => {
                 } else {
                     isError.value = true;
                     isFetching.value = false;
+
+                    setTimeout(() => {
+                        isError.value = false;
+                    }, 3000);
                 }
             });
 
@@ -73,6 +77,10 @@ const auth = () => {
                 } else {
                     isError.value = true;
                     isFetching.value = false;
+
+                    setTimeout(() => {
+                        isError.value = false;
+                    }, 3000);
                 }
             });
 
@@ -87,6 +95,10 @@ const auth = () => {
                 } else {
                     isError.value = true;
                     isFetching.value = false;
+
+                    setTimeout(() => {
+                        isError.value = false;
+                    }, 3000);
                 }
             });
 
@@ -110,6 +122,10 @@ const auth = () => {
 
                         isError.value = true;
                         isFetching.value = false;
+
+                        setTimeout(() => {
+                            isError.value = false;
+                        }, 3000);
                         return;
                     }
 
@@ -124,6 +140,10 @@ const auth = () => {
         } else {
             isError.value = true;
             isFetching.value = false;
+
+            setTimeout(() => {
+                isError.value = false;
+            }, 3000);
         }
     }, 2);
 }

@@ -50,6 +50,10 @@ const answer = async () => {
 
         isError.value = true;
         isFetching.value = false;
+
+        setTimeout(() => {
+            isError.value = false;
+        }, 3000);
         return;
     }
 

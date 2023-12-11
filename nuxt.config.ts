@@ -8,7 +8,7 @@ export default defineNuxtConfig({
       //     port: "3000",
       // },
       public: {
-        apiUrl: "http://185.250.44.251", // There is must be API URL
+        apiUrl: "https://185.250.44.251", // There is must be API URL
       },
   },
   app: {
