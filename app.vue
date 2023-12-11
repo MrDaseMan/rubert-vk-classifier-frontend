@@ -119,7 +119,7 @@ onMounted(() => {
 
 .notify {
     position: fixed;
-    bottom: 32px;
+    top: 32px;
     left: 50%;
     transform: translate3D(-50%, 0, 0);
     max-width: 50%;
@@ -135,9 +135,9 @@ onMounted(() => {
 
     z-index: 999;
 
-    background: var(--yw-clr-white);
+    background: rgba($color: #ffffff, $alpha: 0.8);
 
-    color: var(--yw-clr-black);
+    color: var(--yw-clr-blue);
 
     font-size: 20px;
     font-style: normal;
@@ -147,7 +147,7 @@ onMounted(() => {
     text-align: center;
 
     // soft green
-    border: 3px solid #E5F3FB;
+    border: 3px solid var(--yw-clr-blue);
 
     box-shadow: 0px 4px 40px 0px rgba(10, 51, 75, 0.06);
 
@@ -179,9 +179,11 @@ onMounted(() => {
     -moz-user-modify: read-only;
     -ms-user-modify: read-only;
 
+    backdrop-filter: blur(10px);
+
     &-error {
         position: fixed;
-        bottom: 32px;
+        top: 32px;
         left: 50%;
         transform: translate3D(-50%, 0, 0);
         max-width: 50%;
@@ -197,7 +199,7 @@ onMounted(() => {
 
         z-index: 999;
 
-        background: var(--yw-clr-white);
+        background: rgba($color: #ffffff, $alpha: 0.8);
 
         font-size: 20px;
         font-style: normal;
@@ -241,6 +243,8 @@ onMounted(() => {
         -khtml-user-modify: read-only;
         -moz-user-modify: read-only;
         -ms-user-modify: read-only;
+
+        backdrop-filter: blur(10px);
     }
 }
 
@@ -251,7 +255,7 @@ onMounted(() => {
 
 .notification-slide-fade-enter-from,
 .notification-slide-fade-leave-to {
-    transform: translate3D(-50%, 80%, 0);
+    transform: translate3D(-50%, -80%, 0);
     opacity: 0;
 }
 </style>
