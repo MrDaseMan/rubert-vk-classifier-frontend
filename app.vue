@@ -119,7 +119,7 @@ onMounted(() => {
 
 .notify {
     position: fixed;
-    top: 32px;
+    top: 18px;
     left: 50%;
     transform: translate3D(-50%, 0, 0);
     max-width: 50%;
@@ -183,7 +183,7 @@ onMounted(() => {
 
     &-error {
         position: fixed;
-        top: 32px;
+        top: 18px;
         left: 50%;
         transform: translate3D(-50%, 0, 0);
         max-width: 50%;
