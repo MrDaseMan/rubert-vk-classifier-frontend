@@ -1,8 +1,8 @@
 <template>
     <div class="wrapper">
-        <Transition name="slide-fade">
+        <Transition name="notification-slide-fade">
             <div v-if="isError" class="notify-error">
-                Произошла ошибка при отправке запроса, пожалуйста, повторите попытку позже.
+                Произошла ошибка при отправке запроса, пожалуйста, повторите попытку позже!
             </div>
         </Transition>
         <form v-for="(question, index) in getQuestions" :key="question.question">

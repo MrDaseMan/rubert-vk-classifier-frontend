@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Transition name="slide-fade">
+        <Transition name="notification-slide-fade">
             <div v-if="isError" class="notify-error">
                 {{ error_text }}
             </div>
@@ -127,7 +127,7 @@ const auth = () => {
 
                         isError.value = true;
                         isFetching.value = false;
-                        error_text.value = "Произошла ошибка при отправке данных на сервер.";
+                        error_text.value = "Произошла ошибка при отправке данных на сервер!";
 
                         setTimeout(() => {
                             isError.value = false;
