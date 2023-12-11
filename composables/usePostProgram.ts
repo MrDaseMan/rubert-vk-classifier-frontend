@@ -8,12 +8,18 @@ export const usePostProgram = async (questions: Array<any>) => {
         body: [
             ...questions
         ],
-        onResponseError: (error) => {
-            _error = error;
+        onRequestError: ({ request, response, options }) => {
+            console.log("edu/program:onRequestError",response);
+            _error = response?._data;
             _status = false;
         },
-        onResponse: (response) => {
-            _result = response.response._data;
+        onResponseError: ({ request, response, options }) => {
+            console.log("edu/program:onResponseError", response);
+            _error = response._data;
+            _status = false;
+        },
+        onResponse: ({ request, response, options }) => {
+            _result = response._data;
             _status = true;
         }
     });

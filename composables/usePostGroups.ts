@@ -9,8 +9,13 @@ export const usePostGroups = async (schools: Array<any>, publics: Array<any>) =>
             schools: schools,
             publics: publics
         }, 
+        onRequestError: ({ request, response, options }) => {
+            console.log("edu/group:onRequestError", response);
+            _error = response?._data;
+            _status = false;
+        },
         onResponseError: ({ request, response, options }) => {
-            console.log(response);
+            console.log("edu/group:onResponseError", response);
             _error = response._data;
             _status = false;
         },
