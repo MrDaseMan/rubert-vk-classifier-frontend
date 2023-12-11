@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Transition name="slide-fade">
+            <div v-if="isError" class="notify-error">
+                Произошла ошибка при авторизации, пожалуйста, повторите попытку позже.
+            </div>
+        </Transition>
         <div class="wrapper">
             <h1>
                 Войдите в свою страницу ВК
@@ -7,9 +12,6 @@
             <p>
                 Мы проанализируем данные с вашей страницы и передадим их в нейронную сеть
             </p>
-            <div class="error" v-if="isError">
-                Произошла ошибка при авторизации, пожалуйста, повторите попытку позже.
-            </div>
             <button @click="auth" :disabled="isFetching">
                 <span v-if="!isFetching">Войти</span>
                 <Loader style="width: 20px; height: 20px" v-else/>
@@ -106,6 +108,7 @@ const auth = () => {
                         isFetching.value = false;
 
                         useError().value = result.error;
+                        navigateTo('/error');
                         return;
                     }
 
