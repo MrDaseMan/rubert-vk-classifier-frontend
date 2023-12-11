@@ -102,6 +102,12 @@ onMounted(() => {
             letter-spacing: -0.6px;
 
             text-align: start;
+
+            @media (max-width: 480px) {
+                font-size: 18px;
+                line-height: 110%; /* 20.8px */
+                letter-spacing: -0.4px;
+            }
         }
     }
 }

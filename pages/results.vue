@@ -102,6 +102,14 @@ span {
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.6px;
+
+    @media (max-width: 480px) {
+        font-size: 18px;
+        line-height: 110%;
+        /* 20.8px */
+
+        letter-spacing: -0.3px;
+    }
 }
 
 ul {
@@ -118,6 +126,14 @@ ul {
             line-height: normal;
             letter-spacing: -0.5px;
             color: rgba(0, 0, 0, 0.60);
+
+            @media (max-width: 480px) {
+                font-size: 18px;
+                line-height: 110%;
+                /* 20.8px */   
+
+                letter-spacing: -0.3px;
+            }
         }
 
         height: fit-content;
@@ -149,6 +165,14 @@ ul {
             line-height: normal;
             letter-spacing: -0.5px;
             color: rgba(0, 0, 0, 0.60);
+
+            @media (max-width: 480px) {
+                font-size: 18px;
+                line-height: 110%;
+                /* 20.8px */
+
+                letter-spacing: -0.3px;
+            }
         }
     }
 }
@@ -171,6 +195,14 @@ ul {
         font-weight: 500;
         line-height: 110%; /* 44px */
         letter-spacing: -1px;
+
+        @media (max-width: 480px) {
+            font-size: 32px;
+            line-height: 110%;
+            /* 36px */
+
+            letter-spacing: -0.8px;
+        }
     }
 
     h2 {
@@ -179,6 +211,14 @@ ul {
         font-weight: 400;
         line-height: normal;
         letter-spacing: -0.6px;
+
+        @media (max-width: 480px) {
+            font-size: 18px;
+            line-height: 110%;
+            /* 20.8px */
+
+            letter-spacing: -0.4px;
+        }
     }
 }
 </style>

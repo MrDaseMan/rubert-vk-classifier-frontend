@@ -99,6 +99,12 @@ onMounted(() => {
         letter-spacing: -1px;
 
         width: 100%;
+
+        @media (max-width: 480px) {
+            font-size: 32px;
+            line-height: 110%; /* 36px */
+            letter-spacing: -0.8px;
+        }
     }
 
     p {
@@ -110,6 +116,12 @@ onMounted(() => {
         font-weight: 400;
         line-height: normal;
         letter-spacing: -0.6px;
+
+        @media (max-width: 480px) {
+            font-size: 18px;
+            line-height: 110%; /* 20.8px */
+            letter-spacing: -0.4px;
+        }
     }
 
     & > button {
@@ -122,7 +134,7 @@ onMounted(() => {
     top: 18px;
     left: 50%;
     transform: translate3D(-50%, 0, 0);
-    max-width: 50%;
+    max-width: 80%;
 
     display: flex;
     justify-content: center;
@@ -147,7 +159,7 @@ onMounted(() => {
     text-align: center;
 
     // soft green
-    border: 3px solid var(--yw-clr-blue);
+    border: 2px solid var(--yw-clr-blue);
 
     box-shadow: 0px 4px 40px 0px rgba(10, 51, 75, 0.06);
 
@@ -181,12 +193,20 @@ onMounted(() => {
 
     backdrop-filter: blur(10px);
 
+    @media (max-width: 768px) {
+        top: 86px;
+        max-width: 100%;
+        width: 90%;
+
+        font-size: 14px;
+    }
+
     &-error {
         position: fixed;
         top: 18px;
         left: 50%;
         transform: translate3D(-50%, 0, 0);
-        max-width: 50%;
+        max-width: 80%;
 
         display: flex;
         justify-content: center;
@@ -210,9 +230,9 @@ onMounted(() => {
         text-align: center;
 
         // soft green
-        border: 1px solid var(--yw-clr-red);
+        border: 2px solid var(--yw-clr-red);
 
-        box-shadow: 0px 4px 40px 0px rgba(10, 51, 75, 0.06);
+        box-shadow: 0px 4px 40px 0px var(--yw-clr-light-pink-50);
 
         padding: 8px 16px;
 
@@ -245,6 +265,13 @@ onMounted(() => {
         -ms-user-modify: read-only;
 
         backdrop-filter: blur(10px);
+        @media (max-width: 768px) {
+            top: 86px;
+            max-width: 100%;
+            width: 90%;
+
+            font-size: 14px;
+        }
     }
 }
 
