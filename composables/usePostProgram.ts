@@ -8,13 +8,13 @@ export const usePostProgram = async (questions: Array<any>) => {
         body: [
             ...questions
         ],
-        onRequestError: ({ request, response, options }) => {
-            console.log("edu/program:onRequestError",response);
+        onRequestError: ({ request, response, options, error }) => {
+            console.log("edu/group:onRequestError", response || error);
             _error = response?._data;
             _status = false;
         },
-        onResponseError: ({ request, response, options }) => {
-            console.log("edu/program:onResponseError", response);
+        onResponseError: ({ request, response, options, error }) => {
+            console.log("edu/group:onResponseError", response || error);
             _error = response._data;
             _status = false;
         },

@@ -1,5 +1,10 @@
 <template>
     <div class="wrapper">
+        <Transition name="slide-fade">
+            <div v-if="isError" class="notify-error">
+                Произошла ошибка при авторизации, пожалуйста, повторите попытку позже.
+            </div>
+        </Transition>
         <form v-for="(question, index) in getQuestions" :key="question.question">
             <p class="question">{{ question.question }}</p>
             <div id="test-amount-slider">
@@ -29,13 +34,22 @@ definePageMeta({
     layout: 'centered',
 })
 
+const isError = ref(false);
+
 const getQuestions = computed(() => {
     return useGroup().value?.questions || [];
 })
 
 const answer = async () => {
     let result = await usePostProgram(getQuestions.value);
+
     if(!result || !result.status) {
+        // useError().value = result.error;
+        // navigateTo('/error');
+        // return;
+
+        isError.value = true;
+        isFetching.value = false;
         return;
     }
 
