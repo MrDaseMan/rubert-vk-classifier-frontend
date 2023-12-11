@@ -66,18 +66,21 @@ onMounted(() => {
         useRouter().push("/auth");
         return;
     }
-
-    isLoaded.value = true;
-})
-
-const storeInUrl = () => {
+    
     const query = {
         program: useResults().value?.edu_program,
         subjects: JSON.stringify(useResults().value?.subjects),
         professions: JSON.stringify(useResults().value?.professions),
     }
 
-    useRouter().push({ query });
+    useRouter().push({
+        query
+    });
+
+    isLoaded.value = true;
+})
+
+const storeInUrl = () => {
 
     // copy to clipboard
     navigator.clipboard.writeText(window.location.href);
