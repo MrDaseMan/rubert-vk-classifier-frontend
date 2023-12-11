@@ -122,6 +122,7 @@ onMounted(() => {
     top: 32px;
     left: 50%;
     transform: translate3D(-50%, 0, 0);
+    max-width: 50%;
 
     display: flex;
     justify-content: center;
@@ -158,6 +159,7 @@ onMounted(() => {
         top: 32px;
         left: 50%;
         transform: translate3D(-50%, 0, 0);
+        max-width: 50%;
 
         display: flex;
         justify-content: center;
@@ -179,13 +181,15 @@ onMounted(() => {
         letter-spacing: -0.5px;
 
         // soft green
-        border: 3px solid var(--yw-clr-red);
+        border: 1px solid var(--yw-clr-red);
 
         box-shadow: 0px 4px 40px 0px rgba(10, 51, 75, 0.06);
 
         padding: 8px 16px;
 
         border-radius: 32px;
+
+        color: var(--yw-clr-red);
     }
 }
 
