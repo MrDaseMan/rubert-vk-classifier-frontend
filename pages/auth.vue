@@ -101,6 +101,14 @@ const auth = () => {
                     
                     let result = await usePostGroups(schools, publics);
 
+                    if(!result || !result.status) {
+                        isError.value = true;
+                        isFetching.value = false;
+
+                        useError().value = result.error;
+                        return;
+                    }
+
                     isFetching.value = false;
                     useGroup().value = result.result;
 
