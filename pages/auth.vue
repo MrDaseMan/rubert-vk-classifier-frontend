@@ -2,7 +2,7 @@
     <div>
         <Transition name="slide-fade">
             <div v-if="isError" class="notify-error">
-                Произошла ошибка при авторизации, пожалуйста, повторите попытку позже.
+                {{ error_text }}
             </div>
         </Transition>
         <div class="wrapper">
@@ -44,6 +44,8 @@ const studying = ref({
     items: []
 });
 
+const error_text = ref('');
+
 const auth = () => {
     isError.value = false;
     isFetching.value = true;
@@ -63,6 +65,7 @@ const auth = () => {
                 } else {
                     isError.value = true;
                     isFetching.value = false;
+                    error_text.value = "Произошла ошибка при получении данных со страницы ВК: " + r.error.error_msg;
 
                     setTimeout(() => {
                         isError.value = false;
@@ -77,6 +80,7 @@ const auth = () => {
                 } else {
                     isError.value = true;
                     isFetching.value = false;
+                    error_text.value = "Произошла ошибка при получении данных со страницы ВК: " + r.error.error_msg;
 
                     setTimeout(() => {
                         isError.value = false;
@@ -95,6 +99,7 @@ const auth = () => {
                 } else {
                     isError.value = true;
                     isFetching.value = false;
+                    error_text.value = "Произошла ошибка при получении данных со страницы ВК: " + r.error.error_msg;
 
                     setTimeout(() => {
                         isError.value = false;
@@ -122,6 +127,7 @@ const auth = () => {
 
                         isError.value = true;
                         isFetching.value = false;
+                        error_text.value = "Произошла ошибка при отправке данных на сервер.";
 
                         setTimeout(() => {
                             isError.value = false;
@@ -140,6 +146,7 @@ const auth = () => {
         } else {
             isError.value = true;
             isFetching.value = false;
+            error_text.value = "Произошла ошибка при авторизации в ВК: " + response.error_msg;
 
             setTimeout(() => {
                 isError.value = false;
