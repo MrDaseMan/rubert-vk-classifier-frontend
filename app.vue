@@ -1,6 +1,7 @@
 <template>
     <NuxtLayout>
-        <NuxtPage />
+        <NuxtLoadingIndicator />
+        <NuxtPage/>
     </NuxtLayout>
 </template>
 
@@ -36,6 +37,26 @@ onMounted(() => {
 
     transform: translateX(0);
 }
+
+.page-slide-enter-active {
+    transition: all 0.5s ease;
+}
+
+.page-slide-leave-active {
+    transition: all 0.5s ease;
+}
+
+.page-slide-enter-from {
+    filter: blur(10px);
+
+    opacity: 0;
+}
+
+.page-slide-leave-to {
+    filter: blur(10px);
+
+    opacity: 0;
+}
 </style>
 
 
@@ -48,6 +69,7 @@ onMounted(() => {
     border: 1px solid #E5F3FB;
 
     background: #FFF;
+    width: min(100%, 640px);
 
     box-shadow: 0px 4px 40px 0px rgba(10, 51, 75, 0.06);
 
@@ -60,6 +82,7 @@ onMounted(() => {
 
     z-index: 10;
 
+    margin-top: 32px;
     margin-bottom: 32px;
 
     &:last-child {

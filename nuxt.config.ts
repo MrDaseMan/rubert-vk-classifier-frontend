@@ -29,6 +29,8 @@ export default defineNuxtConfig({
           ],
       },
       rootId: "yw-app",
+      pageTransition: { name: "page-slide", mode: "out-in" },
+      layoutTransition: { name: "page-slide", mode: "out-in" },
   },
   components: [
       {

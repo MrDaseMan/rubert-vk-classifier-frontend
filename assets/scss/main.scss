@@ -168,7 +168,7 @@ form {
 			left: 50%;
 			transform: translate(-50%, -50%);
 			border-radius: 24px;
-			background: linear-gradient(90deg, rgba(69,180,242,1) 0%, rgba(69,180,242,0.5886729691876751) 25%, rgba(69,180,242,1) 56%, rgba(69,180,242,1) 100%);
+			background: linear-gradient(90deg, rgba(69,180,242,1) 0%, rgba(69,180,242,0.2886729691876751) 35%, rgba(69,180,242,1) 56%, rgba(69,180,242,1) 100%);
 		}
 		& > label.second, & > label.fourth {
 			@media (max-width: 768px) {

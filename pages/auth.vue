@@ -12,7 +12,7 @@
             </div>
             <button @click="auth" :disabled="isFetching">
                 <span v-if="!isFetching">Войти</span>
-                <Loader v-else/>
+                <Loader style="width: 20px; height: 20px" v-else/>
             </button>
         </div>
         <LazySvgBgVkDark class="bg"/>
@@ -26,9 +26,6 @@ definePageMeta({
 })
 
 const isError = ref(false);
-
-const questions = ref([]);
-const result = ref(null);
 
 const isFetching = ref(false);
 
@@ -132,6 +129,12 @@ const auth = () => {
 
     @media (max-width: 768px) {
         display: none;        
+    }
+}
+
+.wrapper {
+    & > button {
+        margin-top: 24px;
     }
 }
 </style>

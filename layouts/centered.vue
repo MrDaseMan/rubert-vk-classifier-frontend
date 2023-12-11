@@ -1,24 +1,26 @@
 <template>
-    <header>
-        <nav>
-            <NuxtLink to="/">
-                <LazySvgLogo/>
-            </NuxtLink>
+    <div>
+        <header>
+            <nav>
+                <NuxtLink to="/">
+                    <LazySvgLogo/>
+                </NuxtLink>
 
-            <div class="ID" v-if="getUserID">
-                VK ID: <span>{{ getUserID }}</span>
+                <div class="ID" v-if="getUserID">
+                    VK ID: <span>{{ getUserID }}</span>
+                </div>
+
+                <a class="logo" href="https://asu.edu.ru/" target="_blank">
+                    <img src="~/assets/images/asu-logo-t.webp">
+                </a>
+            </nav>
+        </header>
+        <main>
+            <div class="content">
+                <slot/>
             </div>
-
-            <a class="logo" href="https://asu.edu.ru/" target="_blank">
-                <img src="~/assets/images/asu-logo-t.webp">
-            </a>
-        </nav>
-    </header>
-    <main>
-        <div class="content">
-            <slot/>
-        </div>
-    </main>
+        </main>
+    </div>
 </template>
 
 <script setup>

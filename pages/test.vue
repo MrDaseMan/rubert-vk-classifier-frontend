@@ -34,15 +34,12 @@ const getQuestions = computed(() => {
 })
 
 const answer = async () => {
-    console.log(useGroup().value?.questions);
-
     let result = await usePostProgram(getQuestions.value);
     if(!result || !result.status) {
         return;
     }
 
-    useResults().value = result.data;
-    console.log(useResults().value);
+    useResults().value = result.result;
     navigateTo('/results')
 }
 
@@ -72,6 +69,7 @@ onMounted(() => {
 .wrapper {
     width: 100%;
     margin-top: 48px;
+    margin-bottom: 48px;
 
     & > form {
         border: none;

@@ -1,40 +1,42 @@
 <template>
-    <header>
-        <nav>
-            <NuxtLink to="/">
-                <LazySvgLogo/>
-            </NuxtLink>
+    <div>
+        <header>
+            <nav>
+                <NuxtLink to="/">
+                    <LazySvgLogo/>
+                </NuxtLink>
 
-            <a class="logo" href="https://asu.edu.ru/" target="_blank">
-                <img src="~/assets/images/asu-logo-t.webp">
-            </a>
-        </nav>
-    </header>
-    <main>
-        <slot/>
-    </main>
-    <footer v-if="useRoute().path === '/'">
-        <div class="footer__top">
-            <NuxtLink to="/">
-                <LazySvgLogo/>
-            </NuxtLink>
-            <div class="footer__top__links">
-                <a href="https://t.me" target="_blank">
-                  <LazySvgTG/>  
+                <a class="logo" href="https://asu.edu.ru/" target="_blank">
+                    <img src="~/assets/images/asu-logo-t.webp">
                 </a>
-                <a href="https://vk.com/asu_edu_ru" target="_blank">
-                    <LazySvgVK/>
-                </a>
+            </nav>
+        </header>
+        <main>
+            <slot/>
+        </main>
+        <footer v-if="useRoute().path === '/'">
+            <div class="footer__top">
+                <NuxtLink to="/">
+                    <LazySvgLogo/>
+                </NuxtLink>
+                <div class="footer__top__links">
+                    <a href="https://t.me" target="_blank">
+                    <LazySvgTG/>  
+                    </a>
+                    <a href="https://vk.com/asu_edu_ru" target="_blank">
+                        <LazySvgVK/>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="footer__bottom">
-            <p>© 2023 Астраханский государственный университет имени В. Н. Татищева.<br>
-            При использовании материалов портала активная ссылка на ресурс обязательна.</p>
-            <NuxtLink to="/privacy-policy">Политика конфиденциальности</NuxtLink>
-        </div>
+            <div class="footer__bottom">
+                <p>© 2023 Астраханский государственный университет имени В. Н. Татищева.<br>
+                При использовании материалов портала активная ссылка на ресурс обязательна.</p>
+                <NuxtLink to="/privacy-policy">Политика конфиденциальности</NuxtLink>
+            </div>
 
-        <LazySvgBgWay class="footer__bg"/>
-    </footer>
+            <LazySvgBgWay class="footer__bg"/>
+        </footer>
+    </div>
 </template>
 
 <style lang="scss">
