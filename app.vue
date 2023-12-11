@@ -119,7 +119,7 @@ onMounted(() => {
 
 .notify {
     position: fixed;
-    top: 32px;
+    bottom: 32px;
     left: 50%;
     transform: translate3D(-50%, 0, 0);
     max-width: 50%;
@@ -144,6 +144,7 @@ onMounted(() => {
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.5px;
+    text-align: center;
 
     // soft green
     border: 3px solid #E5F3FB;
@@ -154,9 +155,33 @@ onMounted(() => {
 
     border-radius: 32px;
 
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+    user-select: none;
+
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+
+    -webkit-user-zoom: none;
+    -khtml-user-zoom: none;
+    -moz-user-zoom: none;
+    -ms-user-zoom: none;
+    user-zoom: none;
+
+    -webkit-user-modify: read-only;
+    -khtml-user-modify: read-only;
+    -moz-user-modify: read-only;
+    -ms-user-modify: read-only;
+
     &-error {
         position: fixed;
-        top: 32px;
+        bottom: 32px;
         left: 50%;
         transform: translate3D(-50%, 0, 0);
         max-width: 50%;
@@ -180,6 +205,8 @@ onMounted(() => {
         line-height: normal;
         letter-spacing: -0.5px;
 
+        text-align: center;
+
         // soft green
         border: 1px solid var(--yw-clr-red);
 
@@ -190,6 +217,30 @@ onMounted(() => {
         border-radius: 32px;
 
         color: var(--yw-clr-red);
+
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        pointer-events: none;
+        user-select: none;
+
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -ms-user-drag: none;
+
+        -webkit-user-zoom: none;
+        -khtml-user-zoom: none;
+        -moz-user-zoom: none;
+        -ms-user-zoom: none;
+        user-zoom: none;
+
+        -webkit-user-modify: read-only;
+        -khtml-user-modify: read-only;
+        -moz-user-modify: read-only;
+        -ms-user-modify: read-only;
     }
 }
 
