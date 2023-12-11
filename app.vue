@@ -251,7 +251,7 @@ onMounted(() => {
 
 .notification-slide-fade-enter-from,
 .notification-slide-fade-leave-to {
-    transform: translate3D(-50%, -80%, 0);
+    transform: translate3D(-50%, 80%, 0);
     opacity: 0;
 }
 </style>
