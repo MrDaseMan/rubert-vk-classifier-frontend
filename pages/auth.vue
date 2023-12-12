@@ -127,7 +127,7 @@ const auth = () => {
 
                         isError.value = true;
                         isFetching.value = false;
-                        error_text.value = "Произошла ошибка при отправке данных на сервер: " + JSON.stringify(result.error);
+                        error_text.value = "Произошла ошибка при отправке данных на сервер: " + result.error.error;
 
                         setTimeout(() => {
                             isError.value = false;
