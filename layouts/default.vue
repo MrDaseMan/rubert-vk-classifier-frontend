@@ -6,9 +6,11 @@
                     <LazySvgLogo/>
                 </NuxtLink>
 
-                <div class="ID" v-if="getUserID">
-                    VK ID: <span>{{ getUserID }}</span>
-                </div>
+                <Transition name="notification-slide-fade">
+                    <div class="ID" v-if="getUserID">
+                        VK ID: <span>{{ getUserID }}</span>
+                    </div>
+                </Transition>
 
                 <a class="logo" href="https://asu.edu.ru/" target="_blank">
                     <img src="~/assets/images/asu-logo-t.webp">
@@ -57,6 +59,7 @@ header {
     backdrop-filter: blur(10px);
 
     nav {
+        position: relative;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -91,6 +94,11 @@ header {
         }
 
         .ID {
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+
             display: flex;
             justify-content: center;
             padding: 12px 20px;
