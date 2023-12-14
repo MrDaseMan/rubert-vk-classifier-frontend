@@ -13,8 +13,8 @@
                 </div>
                 <div class="steps__block" ref="thirdStepLeft">
                     <div class="steps__block__content">
-                        <h2>Получи группу направлений</h2>
-                        <p>Нейросеть на основе ваших подписок и других данных предскажет к какой группе направлений вы подходите</p>
+                        <h2>Пройди небольшой тест</h2>
+                        <p>На основе ответов мы дадим более детальную информацию о рекомендуемом направление</p>
                     </div>
                     <div class="steps__block__number">
                         <LazySvgThirdStep/>
@@ -26,8 +26,8 @@
         <div class="steps__right">
             <div class="steps__block" ref="secondStepRight">
                 <div class="steps__block__content">
-                    <h2>Пройди небольшой тест</h2>
-                    <p>На основе ответов мы дадим более детальную информацию о рекомендуемом направление</p>
+                    <h2>Получи группу направлений</h2>
+                    <p>Нейросеть на основе ваших подписок и других данных предскажет к какой группе направлений вы подходите</p>
                 </div>
                 <div class="steps__block__number">
                     <LazySvgSecondStep/>
