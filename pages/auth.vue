@@ -69,7 +69,7 @@ const auth = () => {
 
                     setTimeout(() => {
                         isError.value = false;
-                    }, 3000);
+                    }, 10000);
                 }
             });
 
@@ -84,7 +84,7 @@ const auth = () => {
 
                     setTimeout(() => {
                         isError.value = false;
-                    }, 3000);
+                    }, 10000);
                 }
             });
 
@@ -103,7 +103,7 @@ const auth = () => {
 
                     setTimeout(() => {
                         isError.value = false;
-                    }, 3000);
+                    }, 10000);
                 }
             });
 
@@ -131,12 +131,15 @@ const auth = () => {
 
                         setTimeout(() => {
                             isError.value = false;
-                        }, 3000);
+                        }, 10000);
                         return;
                     }
 
                     isFetching.value = false;
-                    useGroup().value = result.result;
+                    useGroup().value = {
+                        groups: result.result,
+                        selected_id: null
+                    };
 
                     if(result.result) {
                         navigateTo('/prediction');
@@ -150,7 +153,7 @@ const auth = () => {
 
             setTimeout(() => {
                 isError.value = false;
-            }, 3000);
+            }, 10000);
         }
     }, 2);
 }

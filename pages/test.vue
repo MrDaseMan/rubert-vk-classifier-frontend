@@ -5,22 +5,28 @@
                 Произошла ошибка при отправке запроса, пожалуйста, повторите попытку позже!
             </div>
         </Transition>
-        <form v-for="(question, index) in getQuestions" :key="question.question">
-            <p class="question">{{ question.question }}</p>
-            <div id="test-amount-slider">
-                <input type="radio" :name="`question-${index}`" :id="`question-${index}-1`" value="1" required @click="question.answer = 1">
-                <label class="first" :for="`question-${index}-1`" data-test-amount="Нет"></label>
-                <input type="radio" :name="`question-${index}`" :id="`question-${index}-2`" value="2" required @click="question.answer = 2">
-                <label class="second" :for="`question-${index}-2`" data-test-amount=""></label>
-                <input type="radio" :name="`question-${index}`" :id="`question-${index}-3`" value="3" required checked @click="question.answer = 3">
-                <label class="third" :for="`question-${index}-3`" data-test-amount="Может быть"></label>
-                <input type="radio" :name="`question-${index}`" :id="`question-${index}-4`" value="4" required @click="question.answer = 4">
-                <label class="fourth" :for="`question-${index}-4`" data-test-amount=""></label>
-                <input type="radio" :name="`question-${index}`" :id="`question-${index}-5`" value="5" required @click="question.answer = 5">
-                <label class="fifth" :for="`question-${index}-5`" data-test-amount="Да"></label>
-                <div id="test-amount-pos"></div>
-            </div>
-        </form>
+        <ClientOnly>
+            <form v-for="(question, index) in getQuestions" :key="question.question">
+                <p class="question">{{ question.question }}</p>
+                <div id="test-amount-slider">
+                    <input type="radio" :name="`question-${index}`" :id="`question-${index}-1`" value="1" required @click="question.answer = 1">
+                    <label class="first" :for="`question-${index}-1`" data-test-amount="Нет"></label>
+                    <input type="radio" :name="`question-${index}`" :id="`question-${index}-2`" value="2" required @click="question.answer = 2">
+                    <label class="second" :for="`question-${index}-2`" data-test-amount=""></label>
+                    <input type="radio" :name="`question-${index}`" :id="`question-${index}-3`" value="3" required checked @click="question.answer = 3">
+                    <label class="third" :for="`question-${index}-3`" data-test-amount="Может быть"></label>
+                    <input type="radio" :name="`question-${index}`" :id="`question-${index}-4`" value="4" required @click="question.answer = 4">
+                    <label class="fourth" :for="`question-${index}-4`" data-test-amount=""></label>
+                    <input type="radio" :name="`question-${index}`" :id="`question-${index}-5`" value="5" required @click="question.answer = 5">
+                    <label class="fifth" :for="`question-${index}-5`" data-test-amount="Да"></label>
+                    <div id="test-amount-pos"></div>
+                </div>
+            </form>
+
+            <template #fallback>
+                <Loader/>
+            </template>
+        </ClientOnly>
         <div class="buttons">
             <button @click="$router.push('/prediction')">Назад</button>
             <button @click="answer()">Ответить</button>
@@ -34,10 +40,40 @@ definePageMeta({
     layout: 'centered',
 })
 
+onMounted(() => {
+
+    console.log(useGroup().value);
+
+    if(!useUser().value?.id) {
+        navigateTo('/auth');
+        return;
+    }
+
+    if(!useGroup().value?.selected_id) {
+        navigateTo('/auth');
+        return;
+    }
+
+    if(!useGroup().value?.groups.length) {
+        navigateTo('/auth');
+        return;
+    }
+
+    if(!useGroup().value?.groups[useGroup().value.selected_id].questions?.length) {
+        navigateTo('/auth');
+        return;
+    }
+
+    useGroup().value?.groups[useGroup().value.selected_id].questions.forEach(question => {
+        question.answer = 3;
+    })
+});
+
+
 const isError = ref(false);
 
 const getQuestions = computed(() => {
-    return useGroup().value?.questions || [];
+    return useGroup().value?.groups[useGroup().value.selected_id].questions;
 })
 
 const answer = async () => {
@@ -53,34 +89,13 @@ const answer = async () => {
 
         setTimeout(() => {
             isError.value = false;
-        }, 3000);
+        }, 10000);
         return;
     }
 
     useResults().value = result.result;
     navigateTo('/results')
 }
-
-onMounted(() => {
-    if(!useUser().value?.id) {
-        navigateTo('/auth');
-        return;
-    }
-
-    if(!useGroup().value?.questions) {
-        navigateTo('/auth');
-        return;
-    }
-
-    if(!useGroup().value?.questions?.length) {
-        navigateTo('/auth');
-        return;
-    }
-
-    useGroup().value.questions.forEach(question => {
-        question.answer = 3;
-    })
-});
 </script>
 
 <style lang="scss" scoped>

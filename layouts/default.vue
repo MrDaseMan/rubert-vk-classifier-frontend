@@ -6,6 +6,10 @@
                     <LazySvgLogo/>
                 </NuxtLink>
 
+                <div class="ID" v-if="getUserID">
+                    VK ID: <span>{{ getUserID }}</span>
+                </div>
+
                 <a class="logo" href="https://asu.edu.ru/" target="_blank">
                     <img src="~/assets/images/asu-logo-t.webp">
                 </a>
@@ -38,6 +42,10 @@
         </footer>
     </div>
 </template>
+
+<script setup>
+const getUserID = computed(() => useUser().value?.id);
+</script>
 
 <style lang="scss">
 header {
@@ -79,6 +87,34 @@ header {
         .logo {
             img {
                 width: 48px;
+            }
+        }
+
+        .ID {
+            display: flex;
+            justify-content: center;
+            padding: 12px 20px;
+            align-items: center;
+            gap: 12px;
+            border-radius: 24px;
+            border: 1px solid #E5F3FB;
+
+            background: #FFF;
+
+            box-shadow: 0px 4px 40px 0px rgba(10, 51, 75, 0.06);
+
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: -0.6px;
+
+            & > span {
+                color: var(--yw-clr-black-60);
+            }
+
+            @media (max-width: 768px) {
+                display: none;
             }
         }
     }

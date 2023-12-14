@@ -89,7 +89,7 @@ const storeInUrl = () => {
 
     setTimeout(() => {
         isNotificationVisible.value = false;
-    }, 3000);
+    }, 10000);
 }
 
 definePageMeta({
@@ -160,12 +160,13 @@ ul {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        gap: 2px;
 
         &__item {
             font-size: 20px;
             font-style: normal;
             font-weight: 400;
-            line-height: normal;
+            line-height: 120%;
             letter-spacing: -0.5px;
             color: rgba(0, 0, 0, 0.60);
 
