@@ -2,7 +2,7 @@
     <div class="results">
         <ClientOnly>
             <div class="warning" v-if="isLowPercent">
-                <NuxtImg src="./img/hm.png" alt="hm" width="53px"/>
+                <img src="~/assets/images/hm.png" alt="hm" width="53px" style="width: 53px;"/>
                 <h1>
                     Нейросеть очень сомневается
                 </h1>
@@ -14,7 +14,7 @@
                 </p>
             </div>
             <div class="warning" v-else>
-                <NuxtImg src="./img/hm.png" alt="smile" width="53px"/>
+                <img src="~/assets/images/hm.png" alt="smile" width="53px" style="width: 53px;"/>
                 <h1>
                     Нейросеть сделала свой выбор
                 </h1>
