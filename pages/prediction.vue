@@ -103,6 +103,10 @@ onBeforeMount(() => {
 
     width: min(100%, 618px);
 
+    @media (max-width: 480px) {
+        margin-top: 64px;
+    }
+
     & > h1 {
         text-align: center;
         font-size: 40px;
@@ -110,6 +114,11 @@ onBeforeMount(() => {
         font-weight: 500;
         line-height: 110%; /* 44px */
         letter-spacing: -1px;
+
+        @media (max-width: 480px) {
+            font-size: 32px;
+            line-height: 110%;
+        }
     }
 
     & > p {
@@ -121,6 +130,11 @@ onBeforeMount(() => {
         letter-spacing: -0.5px;
 
         color: rgba(0, 0, 0, 0.60);
+
+        @media (max-width: 480px) {
+            font-size: 18px;
+            line-height: 110%;
+        }
     }
 }
 
@@ -139,6 +153,11 @@ onBeforeMount(() => {
     align-items: center;
     justify-content: space-between;
 
+    @media (max-width: 480px) {
+        padding: 24px 24px;
+        min-height: 300px;
+    }
+
     &__title {
         display: flex;
         flex-direction: column;
@@ -153,6 +172,11 @@ onBeforeMount(() => {
             font-weight: 500;
             line-height: 110%; /* 39.6px */
             letter-spacing: -0.9px;
+
+            @media (max-width: 480px) {
+                font-size: 24px;
+                line-height: 110%;
+            }
         }
 
         & > span {
@@ -164,6 +188,11 @@ onBeforeMount(() => {
             font-weight: 500;
             line-height: 110%; /* 26.4px */
             letter-spacing: -0.6px;
+
+            @media (max-width: 480px) {
+                font-size: 18px;
+                line-height: 110%;
+            }
         }
     }
 
