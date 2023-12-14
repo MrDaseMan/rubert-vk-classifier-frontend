@@ -28,7 +28,7 @@
             <div class="list">
                 <div class="wrapper" v-for="(group, index) in getGroups">
                     <div class="wrapper__title">
-                        <span class="">{{ group.probability * 100 | numberFormat }}%</span>
+                        <span class="">{{ Intl.NumberFormat("ru-RU").format(group.probability * 100) }}%</span>
                         <h2>{{ group.group }}</h2>
                     </div>
                     <button @click="goToTest(index)" v-if="group.questions.length">Пройти тест</button>
@@ -52,12 +52,12 @@ definePageMeta({
 });
 
 const getGroups = computed(() => {
-    return useGroup().value.groups || [];
+    return useGroup().value?.groups || [];
 });
 
 const isLowPercent = computed(() => {
     let isLow = true;
-    for (let index = 0; index < useGroup().value.groups.length; index++) {
+    for (let index = 0; index < useGroup().value?.groups?.length; index++) {
         if(parseFloat(useGroup().value.groups[index].probability) >= 0.25) {
             isLow = false;
         }

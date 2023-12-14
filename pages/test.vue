@@ -42,8 +42,6 @@ definePageMeta({
 
 onMounted(() => {
 
-    console.log(useGroup().value);
-
     if(!useUser().value?.id) {
         navigateTo('/auth');
         return;
@@ -73,7 +71,10 @@ onMounted(() => {
 const isError = ref(false);
 
 const getQuestions = computed(() => {
-    return useGroup().value?.groups[useGroup().value.selected_id].questions;
+    // return randomized array
+    return useGroup().value?.groups[useGroup().value.selected_id].questions.sort(function(){
+        return Math.random() - 0.5;
+    });
 })
 
 const answer = async () => {
