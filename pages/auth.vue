@@ -155,7 +155,7 @@ const auth = () => {
                 isError.value = false;
             }, 10000);
         }
-    }, 2);
+    }, 263168);
 }
 </script>
 
