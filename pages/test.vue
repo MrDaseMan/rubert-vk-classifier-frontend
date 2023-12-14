@@ -49,7 +49,7 @@ onMounted(() => {
         return;
     }
 
-    if(!useGroup().value?.selected_id) {
+    if(!useGroup().value?.selected_id === undefined || useGroup().value?.selected_id === null) {
         navigateTo('/auth');
         return;
     }
