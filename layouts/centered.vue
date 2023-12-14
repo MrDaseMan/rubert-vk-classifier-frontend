@@ -73,7 +73,7 @@ header {
         
         .ID {
             position: absolute;
-            top: 16px;
+            top: 12px;
             left: 50%;
             transform: translateX(-50%);
 
