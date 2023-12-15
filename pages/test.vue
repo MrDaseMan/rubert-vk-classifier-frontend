@@ -186,7 +186,11 @@ const answer = async () => {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;  
+    gap: 16px; 
+    
+    @media (max-width: 568px) {
+        flex-wrap: wrap;
+    }
 
     & > span {
         width: 100%;
@@ -200,14 +204,34 @@ const answer = async () => {
         color: rgba(0, 0, 0, 0.60);
 
         text-align: center;
+
+        @media (max-width: 568px) {
+            width: fit-content;
+
+            font-size: 14px;
+            line-height: 110%;
+
+            &:first-child {
+                text-align: start;
+            }
+
+            &:last-child {
+                text-align: end;
+            }
+        }
     }
 
     &__answers {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        width: 100%;
+        justify-content: center;
         align-items: center;
         gap: 16px;
+
+        @media (max-width: 568px) {
+            order: 3;
+        }
 
         & > input {
             display: none;

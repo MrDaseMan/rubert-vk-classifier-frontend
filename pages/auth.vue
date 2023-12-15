@@ -87,7 +87,7 @@ const auth = () => {
         } else {
             isError.value = true;
             isFetching.value = false;
-            error_text.value = "Произошла ошибка при авторизации в ВК: " + response.error_msg;
+            error_text.value = "Произошла ошибка при авторизации в ВК: " + response.error_msg || "Проверьте настройки приватности браузера!";
 
             setTimeout(() => {
                 isError.value = false;
