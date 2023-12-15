@@ -85,10 +85,12 @@ onMounted(() => {
         return;
     }
 
-    const firstQuestion = document.getElementById(`test-question-1`);
-    if(firstQuestion) {
-        firstQuestion.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'nearest'});
-    }
+    nextTick(() => {
+        const firstQuestion = document.getElementById(`test-question-1`);
+        if(firstQuestion) {
+            firstQuestion.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'nearest'});
+        }
+    })
 });
 
 
