@@ -7,7 +7,7 @@
                     Нейросеть очень сомневается
                 </h1>
                 <p >
-                    Похоже, ты очень уникальная личность. Наша нейронная сеть сомневается в твоём случае, однако мы все равно сделаем предположение.
+                    <i>{{ getUserName }}</i>, похоже, ты очень уникальная личность. Наша нейронная сеть сомневается в твоём случае, однако мы всё равно сделаем предположение.
                 </p>
                 <p>
                     Группа определялась на основании твоих подписок. Чтобы попытаться определить направление, предлагаем пройти тест.
@@ -19,7 +19,7 @@
                     Нейросеть сделала свой выбор
                 </h1>
                 <p>
-                    Очередь за тобой. Если хочется получить конкретное направление, предлагаем пройти тест.
+                    <i>{{ getUserName }}</i>, очередь за тобой. Если хочется получить конкретное направление, предлагаем пройти тест.
                 </p>
                 <p>
                     Группа определялась на основании твоих подписок.
@@ -51,6 +51,10 @@ definePageMeta({
     layout: "default"
 });
 
+const getUserName = computed(() => {
+    return useUser().value?.first_name;
+});
+
 const getGroups = computed(() => {
     return useGroup().value?.groups || [];
 });
@@ -72,6 +76,14 @@ const goToTest = (group_id) => {
     }
 
     useGroup().value.selected_id = group_id;
+
+    useGroup().value?.groups[useGroup().value.selected_id].questions.forEach(question => {
+        question.answer = 3;
+    })
+
+    useGroup().value?.groups[useGroup().value.selected_id].questions.sort(function(){
+        return Math.random() - 0.5;
+    });
 
     navigateTo('/test');
 };

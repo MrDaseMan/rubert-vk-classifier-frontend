@@ -6,7 +6,7 @@
             </div>
         </Transition>
         <div class="result">
-            <h1>Результат</h1>
+            <h1>Предполагаем, вам подойдёт</h1>
             <div class="wrapper" v-if="isLoaded">
                 <span>{{ getEduProgram }}</span>
 
@@ -30,6 +30,14 @@
 
                 <!-- <p>Более подробно с направлениями подготовками, а также программами обучения вы сможете ознакомиться на сайте <a href="https://asu.edu.ru/sveden/education/" target="_blank">университета</a>.</p> -->
             </div>
+            <div class="buttons">
+                <button @click="$router.push('/prediction')">
+                    Вернуться к нейросети
+                </button>
+                <button @click="$router.push('/test')">
+                    Вернуться к тесту
+                </button>
+            </div>
             <button @click="storeInUrl()">
                 Поделиться результатами
             </button>
@@ -47,35 +55,27 @@ const isLoaded = ref(false);
 const isNotificationVisible = ref(false);
 const notification_text = ref("Ссылка на результат скопирована в буфер обмена");
 
-onMounted(() => {
+onNuxtReady(async () => {
     isLoaded.value = false;
 
-    //read query
-
-    if(useRoute().query?.program && useRoute().query?.subjects && useRoute().query?.professions) {
-        useResults().value = {
-            edu_program: useRoute().query.program,
-            subjects: JSON.parse(useRoute().query.subjects),
-            professions: JSON.parse(useRoute().query.professions)
-        }
-    }
-
-    console.log(useResults());
-
-    if(!useResults().value) {
-        useRouter().push("/auth");
-        return;
-    }
-    
     const query = {
-        program: useResults().value?.edu_program,
-        subjects: JSON.stringify(useResults().value?.subjects),
-        professions: JSON.stringify(useResults().value?.professions),
+        program: useResults().value?.edu_program || useRoute().query?.program || "",
     }
+
+    let result = await usePostProgramByName(query.program);
+
+    console.log(result);
+    if(result.status)
+        useResults().value = result.result;
 
     useRouter().push({
         query
     });
+
+    // if(!useUser().value?.id) {
+    //     navigateTo('/auth');
+    //     return;
+    // }
 
     isLoaded.value = true;
 })
@@ -222,6 +222,33 @@ ul {
             /* 20.8px */
 
             letter-spacing: -0.4px;
+        }
+    }
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 8px;
+
+    width: 100%;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+
+    & > button {
+        width: 100%;
+
+        background: #E5F3FB;
+        color: black;
+
+        &::before {
+            background: rgba(69,180,242,1);
         }
     }
 }

@@ -2,6 +2,15 @@
     <span class="loader"></span>
 </template>
 
+<script setup>
+const props = defineProps({
+    color: {
+        type: String,
+        default: 'var(--yw-clr-white)'
+    }
+})
+</script>
+
 <style lang="scss" scoped>
 .loader {
     width: 48px;
@@ -17,7 +26,7 @@
     position: absolute;
     inset: 0px;
     border-radius: 50%;
-    border: 5px solid var(--yw-clr-white);
+    border: 5px solid v-bind('props.color');
     animation: prixClipFix 2s linear infinite ;
 }
 
