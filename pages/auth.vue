@@ -29,6 +29,10 @@
                 </button>
             </div>
         </div>
+        <div class="attention" v-if="!isGettingUser">
+            <SvgNotice/>
+            Сервис может не работать в режиме инкогнито
+        </div>
         <div class="wrapper wrapper-loader" v-else>
             <h1>
                 {{ auth_status }}
@@ -275,5 +279,33 @@ onMounted(() => {
             font-size: 32px;
         }
     }
+}
+
+.attention {
+    color: rgba(0, 0, 0, 0.60);
+
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.5px;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: min(100%, 562px);
+    margin-left: auto;
+    margin-right: auto;
+    
+    z-index: 999;
+    background: #ffffff;
+    border: 1px solid #E5F3FB;
+    border-radius: 32px;
+    padding: 16px 36px;
+
+    box-shadow: 0px 4px 40px 0px rgba(10, 51, 75, 0.06);
 }
 </style>
