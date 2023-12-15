@@ -224,13 +224,13 @@ const answer = async () => {
     &__answers {
         display: flex;
         flex-direction: row;
-        width: 100%;
         justify-content: center;
         align-items: center;
         gap: 16px;
 
-        @media (max-width: 568px) {
+        @media (max-width: 480px) {
             order: 3;
+            width: 100%;
         }
 
         & > input {
@@ -285,6 +285,18 @@ const answer = async () => {
                     transform: translate3d(-50%, -50%, 0) scale(1);
                 }
             }
+
+            @media (max-width: 568px) {
+                width: 54px;
+                height: 54px;
+
+                padding: 14px;
+
+                &::before {
+                    width: 54px;
+                    height: 54px;
+                }
+            }
         }
 
         & > label:nth-child(2 of label) {
@@ -321,6 +333,18 @@ const answer = async () => {
                     transform: translate3d(-50%, -50%, 0) scale(1);
                 }
             }
+
+            @media (max-width: 568px) {
+                width: 34px;
+                height: 34px;
+
+                padding: 4px;
+
+                &::before {
+                    width: 34px;
+                    height: 34px;
+                }
+            }
         }
 
         & > label:nth-child(3 of label) {
@@ -348,6 +372,18 @@ const answer = async () => {
                 &::before {
                     z-index: -1;
                     transform: translate3d(-50%, -50%, 0) scale(1);
+                }
+            }
+
+            @media (max-width: 568px) {
+                width: 24px;
+                height: 24px;
+
+                padding: 4px;
+
+                &::before {
+                    width: 24px;
+                    height: 24px;
                 }
             }
         }
@@ -384,6 +420,18 @@ const answer = async () => {
                     transform: translate3d(-50%, -50%, 0) scale(1);
                 }
             }
+
+            @media (max-width: 568px) {
+                width: 34px;
+                height: 34px;
+
+                padding: 4px;
+
+                &::before {
+                    width: 34px;
+                    height: 34px;
+                }
+            }
         }
 
         & > label:nth-child(5 of label) {
@@ -416,6 +464,18 @@ const answer = async () => {
                 &::before {
                     z-index: -1;
                     transform: translate3d(-50%, -50%, 0) scale(1);
+                }
+            }
+
+            @media (max-width: 568px) {
+                width: 54px;
+                height: 54px;
+
+                padding: 14px;
+
+                &::before {
+                    width: 54px;
+                    height: 54px;
                 }
             }
         }
