@@ -6,7 +6,7 @@
             </div>
         </Transition>
         <div class="result">
-            <h1>Возможно, вам подойдёт</h1>
+            <h1>Возможно, тебе подойдёт</h1>
             <div class="wrapper" v-if="isLoaded">
                 <!-- <span>{{ getEduProgram }}</span> -->
                 <div class="wrapper__block">
