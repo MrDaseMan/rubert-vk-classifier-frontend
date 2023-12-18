@@ -37,7 +37,7 @@
             <div class="steps__block" ref="fourthStepRight">
                 <div class="steps__block__content">
                     <h2>Получи результат</h2>
-                    <p>Направление подготовки бакалавриата;<br>Список профессий;<br>предметы ЕГЭ</p>
+                    <p>Направление подготовки бакалавриата<br>Список профессий<br>Предметы ЕГЭ</p>
                 </div>
                 <div class="steps__block__number">
                     <LazySvgFourthStep/>
@@ -79,7 +79,7 @@
             <div class="steps__block" ref="fourthStepTogether">
                 <div class="steps__block__content">
                     <h2>Получи результат</h2>
-                    <p>Направление подготовки бакалавриата;<br>Список профессий;<br>предметы ЕГЭ</p>
+                    <p>Направление подготовки бакалавриата<br>Список профессий<br>Предметы ЕГЭ</p>
                 </div>
                 <div class="steps__block__number">
                     <LazySvgFourthStep/>
