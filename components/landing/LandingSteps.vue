@@ -14,7 +14,7 @@
                 <div class="steps__block" ref="thirdStepLeft">
                     <div class="steps__block__content">
                         <h2>Пройди тест</h2>
-                        <p>Тест  позволит уточнить направление подготовки из выбранной группы</p>
+                        <p>Тест позволит предложить наиболее подходящее направление подготовки из выбранной группы</p>
                     </div>
                     <div class="steps__block__number">
                         <LazySvgThirdStep/>
@@ -69,7 +69,7 @@
             <div class="steps__block" ref="thirdStepTogether">
                 <div class="steps__block__content">
                     <h2>Пройди тест</h2>
-                    <p>Тест позволит уточнить направление подготовки из выбранной группы</p>
+                    <p>Тест позволит предложить наиболее подходящее направление подготовки из выбранной группы</p>
                 </div>
                 <div class="steps__block__number">
                     <LazySvgThirdStep/>
