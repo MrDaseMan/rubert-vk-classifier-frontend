@@ -32,7 +32,7 @@
                         <h2>{{ group.group }}</h2>
                     </div>
                     <button @click="goToTest(index)" v-if="group.questions.length">Пройти тест</button>
-                    <p v-else>Тест в разработке...</p>
+                    <p v-else>Тест отсутствует...</p>
                 </div>
             </div>
 
