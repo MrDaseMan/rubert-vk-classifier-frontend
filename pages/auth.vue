@@ -206,6 +206,8 @@ const logout = () => {
 
     VK.Auth.logout((r) => {
         isFetching.value = false;
+
+        useCookie("vk_app_51793145").value = null;
     });
 
     auth();
