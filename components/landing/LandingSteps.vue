@@ -3,8 +3,8 @@
         <div class="steps__left">
                 <div class="steps__block" ref="firstStepLeft">
                     <div class="steps__block__content">
-                        <h2>Авторизуйся через ВК</h2>
-                        <p>Мы соберём твои данные и передадим их в нейросеть</p>
+                        <h2>Авторизируйся через ВК</h2>
+                        <p>Мы соберём твои подписки и передадим их в нейросеть</p>
                     </div>
                     <div class="steps__block__number">
                         <LazySvgFirstStep/>
@@ -14,7 +14,7 @@
                 <div class="steps__block" ref="thirdStepLeft">
                     <div class="steps__block__content">
                         <h2>Пройди тест</h2>
-                        <p>Тест позволит уточнить направление подготовки из выбранной группы</p>
+                        <p>Тест  позволит уточнить направление подготовки из выбранной группы</p>
                     </div>
                     <div class="steps__block__number">
                         <LazySvgThirdStep/>
@@ -27,7 +27,7 @@
             <div class="steps__block" ref="secondStepRight">
                 <div class="steps__block__content">
                     <h2>Получи группу направлений</h2>
-                    <p>Основываясь на подписках и интересах, нейросеть предложит наиболее подходящие группы направлений</p>
+                    <p>Основываясь на твоих подписках и интересах, нейросеть предложит наиболее подходящие группы направлений подготовки</p>
                 </div>
                 <div class="steps__block__number">
                     <LazySvgSecondStep/>
@@ -37,7 +37,7 @@
             <div class="steps__block" ref="fourthStepRight">
                 <div class="steps__block__content">
                     <h2>Получи результат</h2>
-                    <p>Направление подготовки бакалавриата, список профессий и предметы ЕГЭ</p>
+                    <p>Направление подготовки бакалавриата;<br>Список профессий;<br>предметы ЕГЭ</p>
                 </div>
                 <div class="steps__block__number">
                     <LazySvgFourthStep/>
@@ -48,8 +48,8 @@
         <div class="steps__together">
             <div class="steps__block" ref="firstStepTogether">
                 <div class="steps__block__content">
-                    <h2>Авторизуйся через ВК</h2>
-                    <p>Мы соберём твои данные и передадим их в нейросеть</p>
+                    <h2>Авторизируйся через ВК</h2>
+                    <p>Мы соберём твои подписки и передадим их в нейросеть</p>
                 </div>
                 <div class="steps__block__number">
                     <LazySvgFirstStep/>
@@ -58,8 +58,8 @@
             </div>
             <div class="steps__block" ref="secondStepTogether">
                 <div class="steps__block__content">
-                    <h2>Пройди тест</h2>
-                    <p>Тест позволит уточнить направление подготовки из выбранной группы</p>
+                    <h2>Получи группу направлений</h2>
+                    <p>Основываясь на твоих подписках и интересах, нейросеть предложит наиболее подходящие группы направлений подготовки</p>
                 </div>
                 <div class="steps__block__number">
                     <LazySvgSecondStep/>
@@ -68,8 +68,8 @@
             </div>
             <div class="steps__block" ref="thirdStepTogether">
                 <div class="steps__block__content">
-                    <h2>Получи группу направлений</h2>
-                    <p>Основываясь на подписках и интересах, нейросеть предложит наиболее подходящие группы направлений</p>
+                    <h2>Пройди тест</h2>
+                    <p>Тест позволит уточнить направление подготовки из выбранной группы</p>
                 </div>
                 <div class="steps__block__number">
                     <LazySvgThirdStep/>
@@ -79,7 +79,7 @@
             <div class="steps__block" ref="fourthStepTogether">
                 <div class="steps__block__content">
                     <h2>Получи результат</h2>
-                    <p>Направление подготовки бакалавриата, список профессий и предметы ЕГЭ</p>
+                    <p>Направление подготовки бакалавриата;<br>Список профессий;<br>предметы ЕГЭ</p>
                 </div>
                 <div class="steps__block__number">
                     <LazySvgFourthStep/>

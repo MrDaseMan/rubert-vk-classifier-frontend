@@ -7,7 +7,7 @@ import type { LazySvgStarts } from '#build/components';
         <canvas id="gradient-canvas"></canvas>
         <div class="preview__content">
             <div class="preview__content__info">
-                <h1>Твой <i>успех</i> в твоих интересах</h1>
+                <h1>Твой путь к успеху начинается здесь</h1>
                 <h3>Открой свой путь с помощью искусственного интеллекта на нашем сайте профориентации</h3>
             </div>
             <button @click="$router.push('/auth')">
@@ -524,7 +524,7 @@ onMounted(() => {
         left: 50%;
         transform: translate3d(-50%, -50%, 0);
 
-        width: min(90%, 985px);
+        width: min(90%, 1130px);
 
         display: flex;
         flex-direction: column;
@@ -556,7 +556,7 @@ onMounted(() => {
             }
 
             h3 {
-                width: 80%;
+                width: 60%;
 
                 margin: 0;
                 text-align: center;

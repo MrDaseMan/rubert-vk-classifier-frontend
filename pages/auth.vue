@@ -213,7 +213,6 @@ const logout = () => {
     auth();
 }
 
-
 onMounted(() => {
     auth_status.value = "Пытаемся авторизоваться...";
 

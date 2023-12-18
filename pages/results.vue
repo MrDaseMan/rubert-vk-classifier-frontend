@@ -6,9 +6,17 @@
             </div>
         </Transition>
         <div class="result">
-            <h1>Предполагаем, вам подойдёт</h1>
+            <h1>Возможно, вам подойдёт</h1>
             <div class="wrapper" v-if="isLoaded">
-                <span>{{ getEduProgram }}</span>
+                <!-- <span>{{ getEduProgram }}</span> -->
+                <div class="wrapper__block">
+                    <h2>Направление подготовки</h2>
+                    <div class="wrapper__list">
+                        <div class="wrapper__list__item">
+                            {{ getEduProgram }}
+                        </div>
+                    </div>
+                </div>
 
                 <div class="wrapper__block">
                     <h2>Профессии</h2>
