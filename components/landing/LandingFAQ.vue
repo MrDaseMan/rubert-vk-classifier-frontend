@@ -68,6 +68,12 @@ const checkDisabled = (dropdown) => {
         line-height: 110%; /* 26.4px */
         letter-spacing: -0.6px;
         padding: 16px 24px;
+
+        @media (max-width: 768px) {
+            font-size: 20px;
+            line-height: 110%; /* 22.4px */
+            letter-spacing: -0.5px;
+        }
     }
 
     p {
@@ -85,6 +91,12 @@ const checkDisabled = (dropdown) => {
         font-weight: 400;
         line-height: 110%; /* 26.4px */
         letter-spacing: -0.6px;
+
+        @media (max-width: 768px) {
+            font-size: 16px;
+            line-height: 110%; /* 18.4px */
+            letter-spacing: -0.3px;
+        }
     }
 }
 
@@ -107,6 +119,12 @@ const checkDisabled = (dropdown) => {
         letter-spacing: -1.2px;
 
         text-align: center;
+
+        @media (max-width: 768px) {
+            font-size: 32px;
+            line-height: 110%; /* 36.8px */
+            letter-spacing: -0.9px;
+        }
     }
 
     &__dropdowns {

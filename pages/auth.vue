@@ -93,7 +93,7 @@ const auth = () => {
             isFetching.value = false;
             console.log(response);
             if(response.error_msg === 'undefined' || !response.error_msg) {
-                error_text.value = "Произошла ошибка при авторизации в ВК: " + response.error_msg;
+                error_text.value = "Произошла ошибка при авторизации в ВК, попробуйте позднее!";
             }
             error_text.value = "Произошла ошибка при авторизации в ВК: " + response.error_msg;
 
@@ -213,7 +213,7 @@ const logout = () => {
     auth();
 }
 
-onMounted(() => {
+onNuxtReady(() => {
     auth_status.value = "Пытаемся авторизоваться...";
 
     VK.Auth.getLoginStatus((r) => {

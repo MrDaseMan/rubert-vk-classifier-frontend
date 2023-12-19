@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header>
+        <header id="pt">
             <nav>
                 <NuxtLink to="/">
                     <LazySvgLogo/>
@@ -22,11 +22,11 @@
         </main>
         <footer v-if="useRoute().path === '/'">
             <div class="footer__top">
-                <NuxtLink to="/">
+                <NuxtLink to="/#pt">
                     <LazySvgLogo/>
                 </NuxtLink>
                 <div class="footer__top__links">
-                    <a href="https://t.me" target="_blank">
+                    <a href="https://t.me/asuinforms" target="_blank">
                     <LazySvgTG/>  
                     </a>
                     <a href="https://vk.com/asu_edu_ru" target="_blank">

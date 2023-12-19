@@ -1,26 +1,26 @@
 <template>
     <div class="steps">
         <div class="steps__left">
-                <div class="steps__block" ref="firstStepLeft">
-                    <div class="steps__block__content">
-                        <h2>Авторизируйся через ВК</h2>
-                        <p>Мы соберём твои подписки и передадим их в нейросеть</p>
-                    </div>
-                    <div class="steps__block__number">
-                        <LazySvgFirstStep/>
-                    </div>
-                    <LazySvgBgVk/>
+            <div class="steps__block" ref="firstStepLeft">
+                <div class="steps__block__content">
+                    <h2>Авторизируйся через ВК</h2>
+                    <p>Мы соберём твои подписки и передадим их в нейросеть</p>
                 </div>
-                <div class="steps__block" ref="thirdStepLeft">
-                    <div class="steps__block__content">
-                        <h2>Пройди тест</h2>
-                        <p>Тест позволит предложить наиболее подходящее направление подготовки из выбранной группы</p>
-                    </div>
-                    <div class="steps__block__number">
-                        <LazySvgThirdStep/>
-                    </div>
-                    <LazySvgBgStars/>
+                <div class="steps__block__number">
+                    <LazySvgFirstStep/>
                 </div>
+                <LazySvgBgVk/>
+            </div>
+            <div class="steps__block" ref="thirdStepLeft">
+                <div class="steps__block__content">
+                    <h2>Пройди тест</h2>
+                    <p>Тест позволит предложить наиболее подходящее направление подготовки из выбранной группы</p>
+                </div>
+                <div class="steps__block__number">
+                    <LazySvgThirdStep/>
+                </div>
+                <LazySvgBgStars/>
+            </div>
             <button @click="$router.push('/auth')">Попробовать нейросеть</button>
         </div>
         <div class="steps__right">
@@ -217,7 +217,7 @@ onMounted(() => {
         width: 50%;
         height: 100%;
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             display: none;
         }
 
@@ -252,7 +252,7 @@ onMounted(() => {
         width: 50%;
         height: 100%;
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             display: none;
         }
 
@@ -286,7 +286,7 @@ onMounted(() => {
 
         display: none;
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             display: flex;
         }
 
@@ -333,7 +333,7 @@ onMounted(() => {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
-        justify-content: center;
+        justify-content: space-between;
         gap: 24px;
 
         padding: 32px;
@@ -372,6 +372,11 @@ onMounted(() => {
                 font-weight: 500;
                 line-height: normal;
                 letter-spacing: -0.9px;
+
+                @media (max-width: 768px) {
+                    font-size: 24px;
+                    letter-spacing: -0.6px;
+                }
             }
 
             p {
@@ -381,6 +386,11 @@ onMounted(() => {
                 font-weight: 400;
                 line-height: normal;
                 letter-spacing: -0.6px;
+                
+                @media (max-width: 768px) {
+                    font-size: 16px;
+                    letter-spacing: -0.3px;
+                }
             }
         }
     }

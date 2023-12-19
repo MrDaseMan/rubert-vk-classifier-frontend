@@ -3,7 +3,7 @@ import type { routerKey } from 'vue-router';
 
 import type { LazySvgStarts } from '#build/components';
 <template>
-    <div class="preview">
+    <div class="preview" id="preview">
         <canvas id="gradient-canvas"></canvas>
         <div class="preview__content">
             <div class="preview__content__info">
@@ -513,6 +513,7 @@ onMounted(() => {
 .preview {
     width: 100%;
     height: 80dvh;
+    min-height: 600px;
     
     position: relative;
 
