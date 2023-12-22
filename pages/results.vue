@@ -206,6 +206,8 @@ ul {
         line-height: 110%; /* 44px */
         letter-spacing: -1px;
 
+        text-align: center;
+
         @media (max-width: 480px) {
             font-size: 32px;
             line-height: 110%;

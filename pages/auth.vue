@@ -194,13 +194,8 @@ const fetchUserData = async (isCalledFromAuth = false) => {
 const logout = () => {
     isFetching.value = true;
     useUser().value = null;
-
-    VK.Auth.logout((r) => {
-        isFetching.value = false;
-
-        useToken().set(null);
-    });
-
+    isFetching.value = false;
+    useToken().set(null);
     auth();
 }
 
