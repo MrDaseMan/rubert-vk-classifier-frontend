@@ -63,7 +63,7 @@ const goToNextQuestion = (index) => {
 
 const active_question = ref(0);
 
-onMounted(() => {
+onNuxtReady(() => {
 
     if(!useUser().value?.id) {
         navigateTo('/auth');

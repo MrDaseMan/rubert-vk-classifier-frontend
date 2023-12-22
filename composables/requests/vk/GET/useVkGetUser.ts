@@ -10,6 +10,11 @@ export const useVkGetUser = async (user_id: string) => {
             user_id: user_id,
             extended: 1,
             fields: 
+                'photo_50' + ',' +
+                'photo_100' + ',' +
+                'photo_200' + ',' +
+                'photo_200_orig' + ',' +
+                'photo_400_orig' + ',' +
                 'universities' + ',' +
                 'schools'
         },

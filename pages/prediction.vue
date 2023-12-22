@@ -88,7 +88,7 @@ const goToTest = (group_id) => {
     navigateTo('/test');
 };
 
-onBeforeMount(() => {
+onNuxtReady(() => {
     if(!useUser().value?.id) {
         navigateTo('/auth');
         return;

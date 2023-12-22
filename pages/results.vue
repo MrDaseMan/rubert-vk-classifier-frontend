@@ -38,7 +38,7 @@
 
                 <!-- <p>Более подробно с направлениями подготовками, а также программами обучения вы сможете ознакомиться на сайте <a href="https://asu.edu.ru/sveden/education/" target="_blank">университета</a>.</p> -->
             </div>
-            <div class="buttons">
+            <div class="buttons" v-if="isDataExist">
                 <button @click="$router.push('/prediction')">
                     Вернуться к нейросети
                 </button>
@@ -72,7 +72,6 @@ onNuxtReady(async () => {
 
     let result = await usePostProgramByName(query.program);
 
-    console.log(result);
     if(result.status)
         useResults().value = result.result;
 
@@ -80,12 +79,11 @@ onNuxtReady(async () => {
         query
     });
 
-    // if(!useUser().value?.id) {
-    //     navigateTo('/auth');
-    //     return;
-    // }
-
     isLoaded.value = true;
+})
+
+const isDataExist = computed(() => {
+    return useResults().value && useGroup().value && useUser().value;
 })
 
 const storeInUrl = () => {
