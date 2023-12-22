@@ -16,7 +16,6 @@ onMounted(async () => {
     await nextTick(async () => {
         let query = JSON.parse(useRoute().query.payload);
 
-        console.log(query.token, query.uuid);
         // post token and uuid in backend
         let result = await usePostAccessToken(query.token, query.uuid);
         if (result.status) {
