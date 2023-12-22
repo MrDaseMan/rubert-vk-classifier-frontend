@@ -194,8 +194,7 @@ const fetchUserData = async (isCalledFromAuth = false) => {
 const logout = () => {
     isFetching.value = true;
     useUser().value = null;
-    isFetching.value = false;
-    useToken().set(null);
+    useToken().set(null, 0);
     auth();
 }
 
@@ -206,7 +205,7 @@ onNuxtReady(async () => {
         let user = await useVkGetUser(useUserID().get())
         if(!user || !user.response || !user.response.data || !user.response.data.value || !user.response.data.value.response || !user.status) {
             isGettingUser.value = false;
-            useToken().set(null);
+            useToken().set(null, 0);
             return;
         }
 
