@@ -17,7 +17,7 @@
             </p>
             <button @click="auth" :disabled="isFetching" v-if="!getUser?.id">
                 <span v-if="!isFetching">Войти</span>
-                <Loader style="width: 25.5px; height: 25.5px" v-else/>
+                <Loader style="width: 20px; height: 20px" v-else/>
             </button>
             <div class="wrapper__buttons" v-else>
                 <button @click="logout">
@@ -25,7 +25,7 @@
                 </button>
                 <button @click="fetchUserData(true)" :disabled="isFetching">
                     <span v-if="!isFetching">Продолжить</span>
-                    <Loader style="width: 25.5px; height: 25.5px" v-else/>
+                    <Loader style="width: 20px; height: 20px" v-else/>
                 </button>
             </div>
         </div>
