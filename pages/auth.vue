@@ -219,7 +219,7 @@ const fetchUserData = async (isCalledFromAuth = false) => {
 
             isError.value = true;
             isFetching.value = false;
-            error_text.value = "Произошла ошибка при отправке данных на сервер: " + result.error.error;
+            error_text.value = result.error.error ? "Произошла ошибка при отправке данных на сервер: " + result.error.error : "Произошла неизвестная ошибка при отправке данных на сервер!";
 
             setTimeout(() => {
                 isError.value = false;
@@ -358,5 +358,9 @@ onNuxtReady(async () => {
     padding: 16px 36px;
 
     box-shadow: 0px 4px 40px 0px rgba(10, 51, 75, 0.06);
+
+    svg {
+        min-width: 24px;
+    }
 }
 </style>
