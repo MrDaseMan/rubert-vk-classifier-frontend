@@ -6,7 +6,15 @@
 </template>
 
 <script setup>
+import * as VKID from '@vkid/sdk/dist-sdk/umd/index';
+ 
 onMounted(() => {
+    VKID.Config.set({
+        app: 51818236, // Идентификатор приложения.
+        //if dev build set localhost else set urway.vercel.app
+        redirectUrl: `${process.env.NODE_ENV === 'development' ? "http://localhost:3000" : 'https://urway.vercel.app'}/vkcallback`,
+    });
+
     VK.init({
         apiId: 51793145
     });

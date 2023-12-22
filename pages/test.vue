@@ -104,7 +104,7 @@ const answer = async () => {
     let result = await usePostProgram(getQuestions.value);
 
     if(!result || !result.status) {
-        // useError().value = result.error;
+        // useCustomError().value = result.error;
         // navigateTo('/error');
         // return;
 

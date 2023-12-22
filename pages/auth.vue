@@ -44,9 +44,11 @@
 </template>
 
 <script setup>
+import * as VKID from '@vkid/sdk/dist-sdk/umd/index';
+
 //Set layout
 definePageMeta({
-    layout: 'centered',
+    layout: 'centered'
 })
 
 const auth_status = ref("Пытаемся авторизоваться...");
@@ -85,119 +87,156 @@ const auth = () => {
 
     auth_status.value = "Пытаемся авторизоваться...";
 
-    VK.Auth.login((response) => {
-        if (response.status === 'connected') {
-            useUser().value = response.session.user;
-        } else {
-            isError.value = true;
-            isFetching.value = false;
-            console.log(response);
-            if(response.error_msg === 'undefined' || !response.error_msg) {
-                error_text.value = "Произошла ошибка при авторизации в ВК, попробуйте позднее!";
-            }
-            error_text.value = "Произошла ошибка при авторизации в ВК: " + response.error_msg;
-
-            setTimeout(() => {
-                isError.value = false;
-            }, 10000);
-        }
-    }, 263168);
+    VKID.Auth.login();
 }
 
-const fetchUserData = (isCalledFromAuth = false) => {
+const fetchUserData = async (isCalledFromAuth = false) => {
     auth_status.value = "Получаем данные...";
     isFetching.value = true;
 
-    VK.Api.call('groups.get', {user_ids: useUser().value.id, extended: 1, v:"5.131"}, function(r) {
-        if(r.response) {
-            groups.value.isDone = true;
-            groups.value.items = r.response.items;
-        } else {
-            isError.value = true;
-            isFetching.value = false;
-            error_text.value = "Произошла ошибка при получении данных со страницы ВК: " + r.error.error_msg;
+    // VK.Api.call('groups.get', {user_ids: useUser().value.id, extended: 1, v:"5.131"}, function(r) {
+    //     if(r.response) {
+    //         groups.value.isDone = true;
+    //         groups.value.items = r.response.items;
+    //     } else {
+    //         isError.value = true;
+    //         isFetching.value = false;
+    //         error_text.value = "Произошла ошибка при получении данных со страницы ВК: " + r.error.error_msg;
 
-            setTimeout(() => {
-                isError.value = false;
-            }, 10000);
-        }
-    });
+    //         setTimeout(() => {
+    //             isError.value = false;
+    //         }, 10000);
+    //     }
+    // });
 
-    VK.Api.call('users.getSubscriptions', {user_id: useUser().value.id, extended: 1, v:"5.131"}, function(r) {
-        if(r.response) {
-            subscriptions.value.isDone = true;
-            subscriptions.value.items = r.response.items;
-        } else {
-            isError.value = true;
-            isFetching.value = false;
-            error_text.value = "Произошла ошибка при получении данных со страницы ВК: " + r.error.error_msg;
+    let groups_res = await useVkGetGroups(useUser().value.id);
+    
+    if(groups_res.status && groups_res.result && groups_res.result.response && groups_res.result.response.items) {
+        groups.value.isDone = true;
+        groups.value.items = groups_res.result.response.items;
+    }
+    else
+    {
+        isError.value = true;
+        isFetching.value = false;
+        error_text.value = "Произошла ошибка при получении сообществ со страницы ВК: " + groups_res.error.error_msg;
 
-            setTimeout(() => {
-                isError.value = false;
-            }, 10000);
-        }
-    });
+        setTimeout(() => {
+            isError.value = false;
+        })
+    }
 
-    VK.Api.call('users.get', {user_ids: useUser().value.id, fields: 'universities, schools', v:"5.131"}, function(r) {
-        if(r.response) {
-            studying.value.isDone = true;
-            studying.value.items = r.response[0].universities.concat(r.response[0].schools).map(s => {
-                return {
-                    name: s.name
-                }
-            });
-        } else {
-            isError.value = true;
-            isFetching.value = false;
-            error_text.value = "Произошла ошибка при получении данных со страницы ВК: " + r.error.error_msg;
+    // VK.Api.call('users.getSubscriptions', {user_id: useUser().value.id, extended: 1, v:"5.131"}, function(r) {
+    //     if(r.response) {
+    //         subscriptions.value.isDone = true;
+    //         subscriptions.value.items = r.response.items;
+    //     } else {
+    //         isError.value = true;
+    //         isFetching.value = false;
+    //         error_text.value = "Произошла ошибка при получении данных со страницы ВК: " + r.error.error_msg;
 
-            setTimeout(() => {
-                isError.value = false;
-            }, 10000);
-        }
-    });
+    //         setTimeout(() => {
+    //             isError.value = false;
+    //         }, 10000);
+    //     }
+    // });
+
+    let subscriptions_res = await useVkGetSubscriptions(useUser().value.id);
+
+    if(subscriptions_res.status && subscriptions_res.result && subscriptions_res.result.response && subscriptions_res.result.response.items) {
+        subscriptions.value.isDone = true;
+        subscriptions.value.items = subscriptions_res.result.response.items;
+    }
+    else
+    {
+        isError.value = true;
+        isFetching.value = false;
+        error_text.value = "Произошла ошибка при получении подписок со страницы ВК: " + subscriptions_res.error.error_msg;
+
+        setTimeout(() => {
+            isError.value = false;
+        })
+    }
+
+    // VK.Api.call('users.get', {user_ids: useUser().value.id, fields: 'universities, schools', v:"5.131"}, function(r) {
+    //     if(r.response) {
+    //         studying.value.isDone = true;
+    //         studying.value.items = r.response[0].universities.concat(r.response[0].schools).map(s => {
+    //             return {
+    //                 name: s.name
+    //             }
+    //         });
+    //     } else {
+    //         isError.value = true;
+    //         isFetching.value = false;
+    //         error_text.value = "Произошла ошибка при получении данных со страницы ВК: " + r.error.error_msg;
+
+    //         setTimeout(() => {
+    //             isError.value = false;
+    //         }, 10000);
+    //     }
+    // });
+
+    let studying_res = await useVkGetStudying(useUser().value.id);
+
+    if(studying_res.status && studying_res.result && studying_res.result.response && studying_res.result.response[0] && studying_res.result.response[0].universities) {
+        studying.value.isDone = true;
+        studying.value.items = studying_res.result.response[0].universities.concat(studying_res.result.response[0].schools).map(s => {
+            return {
+                name: s.name
+            }
+        });
+    }
+    else
+    {
+        isError.value = true;
+        isFetching.value = false;
+        error_text.value = "Произошла ошибка при получении мест обучения со страницы ВК: " + studying_res.error.error_msg;
+
+        setTimeout(() => {
+            isError.value = false;
+        })
+    }
 
     // wait when all api methods are called
-    setTimeout(async () => {
-        if(groups.value.isDone && subscriptions.value.isDone && studying.value.isDone && !isError.value) {
-            let publics = groups.value.items.concat(subscriptions.value.items).map(s => {
-                return {
-                    name: s.name
-                }
-            });
-
-            let schools = studying.value.items;
-
-            auth_status.value = "Передаем данные в нейросеть...";
-   
-            let result = await usePostGroups(schools, publics);
-
-            if(!result || !result.status) {
-                // useError().value = result.error;
-                // navigateTo('/error');
-                // return;
-
-                isError.value = true;
-                isFetching.value = false;
-                error_text.value = "Произошла ошибка при отправке данных на сервер: " + result.error.error;
-
-                setTimeout(() => {
-                    isError.value = false;
-                }, 10000);
-                return;
+    if(groups.value.isDone && subscriptions.value.isDone && studying.value.isDone && !isError.value) {
+        let publics = groups.value.items.concat(subscriptions.value.items).map(s => {
+            return {
+                name: s.name
             }
+        });
 
+        let schools = studying.value.items;
+
+        auth_status.value = "Передаем данные в нейросеть...";
+
+        let result = await usePostGroups(schools, publics);
+
+        if(!result || !result.status) {
+            // useCustomError().value = result.error;
+            // navigateTo('/error');
+            // return;
+
+            isError.value = true;
             isFetching.value = false;
-            useGroup().value = {
-                groups: result.result,
-                selected_id: null
-            };
+            error_text.value = "Произошла ошибка при отправке данных на сервер: " + result.error.error;
 
-            if(result.result && isCalledFromAuth) {
-                navigateTo('/prediction');
-            }
+            setTimeout(() => {
+                isError.value = false;
+            }, 10000);
+            return;
         }
-    }, 1000);
+
+        isFetching.value = false;
+        useGroup().value = {
+            groups: result.result,
+            selected_id: null
+        };
+
+        if(result.result && isCalledFromAuth) {
+            navigateTo('/prediction');
+        }
+    }
 }
 
 const logout = () => {
@@ -207,22 +246,29 @@ const logout = () => {
     VK.Auth.logout((r) => {
         isFetching.value = false;
 
-        useCookie("vk_app_51793145").value = null;
+        useToken().set(null);
     });
 
     auth();
 }
 
-onNuxtReady(() => {
+onNuxtReady(async () => {
     auth_status.value = "Пытаемся авторизоваться...";
 
-    VK.Auth.getLoginStatus((r) => {
-        if(r.status === 'connected') {
-            useUser().value = r.session.user;
+    if(useToken().get()) { 
+        let user = await useVkGetUser(useUserID().get())
+        if(!user || !user.response || !user.response.data || !user.response.data.value || !user.response.data.value.response || !user.status) {
+            isGettingUser.value = false;
+            useToken().set(null);
+            return;
         }
 
+        useUser().value = user.response.data.value.response[0];
+
         isGettingUser.value = false;
-    }, 263168);
+    }
+
+    isGettingUser.value = false;
 })
 </script>
 

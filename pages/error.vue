@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         <h1>Произошла ошибка</h1>
-        <div>{{ getError }}</div>
+        <div class="error-text">{{ getError }}</div>
         <button @click="$router.push('/')">На главную</button>
     </div>
 </template>
@@ -12,16 +12,22 @@ definePageMeta({
 })
 
 onMounted(() => {
-    if(!useError().value) {
+    if(!useCustomError().value) {
         navigateTo('/');
     }
 })
 
 onBeforeUnmount(() => {
-    useError().value = null;
+    useCustomError().value = null;
 })
 
 const getError = computed(() => {
-    return useError().value
+    return useCustomError().value
 })
 </script>
+
+<style lang="scss" scoped>
+.error-text {
+    text-wrap: anywhere;
+}
+</style>

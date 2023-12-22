@@ -2,6 +2,14 @@
 export default defineNuxtConfig({
     devtools: { enabled: true },
 
+    nitro: {
+        routeRules: {
+            "/vkapi/**": {
+                proxy: "https://api.vk.com/**",
+            },
+        }
+    },
+
     runtimeConfig: {
         //! For tests and production
         // server: {
@@ -32,7 +40,7 @@ export default defineNuxtConfig({
         },
         rootId: "yw-app",
         pageTransition: { name: "page-slide", mode: "out-in" },
-        layoutTransition: { name: "page-slide", mode: "out-in" },
+        layoutTransition: { name: "page-slide", mode: "out-in" }
     },
 
     components: [
