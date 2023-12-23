@@ -1,6 +1,6 @@
 # RuBert VK Classifier frontend
 
-Фронтенд для работы с [сервером](), использующим модель [RuBert VK Classifier](https://github.com/MrDaseMan/rubert-vk-classifier).
+Фронтенд для работы с [сервером](https://github.com/maryshev3/YourWay), использующим модель [RuBert VK Classifier](https://github.com/MrDaseMan/rubert-vk-classifier).
 
 ## Начало работы
 
