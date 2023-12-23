@@ -54,6 +54,4 @@ export default defineNuxtConfig({
         // SCSS main file
         "~/assets/scss/main.scss",
     ],
-
-    modules: ["@nuxt/image"]
 });
