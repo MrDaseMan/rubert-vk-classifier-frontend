@@ -1,10 +1,6 @@
 <template>
     <div class="wrapper">
-        <Transition name="notification-slide-fade">
-            <div v-if="isError" class="notify-error">
-                Произошла ошибка при отправке запроса, пожалуйста, повторите попытку позже!
-            </div>
-        </Transition>
+        <UINotification :isVisible="isError" :isError="true" error_text="Произошла ошибка при отправке запроса, пожалуйста, повторите попытку позже!"/>
         <ClientOnly>
             <form v-for="(question, index) in getQuestions" :key="question.question" :id="`test-question-${index}`" class="question-wrapper" :class="{'question-wrapper-active': active_question === index}">
                 <p class="question">{{ question.question }}</p>

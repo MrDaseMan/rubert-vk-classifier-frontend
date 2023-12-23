@@ -1,10 +1,6 @@
 <template>
-    <div>
-        <Transition name="notification-slide-fade">
-            <div v-if="isError" class="notify-error">
-                {{ error_text }}
-            </div>
-        </Transition>
+    <div class="auth">
+        <UINotification :isVisible="isError" :isError="true" :error_text="error_text"/>
         <div class="wrapper" v-if="!isGettingUser">
             <h1 v-if="!getUser?.id">
                 Войдите в свою страницу ВК
@@ -12,7 +8,7 @@
             <h1 v-else>
                 Использовать пользователя <i>{{ getUser.first_name }}</i>?
             </h1>
-            <img class="profile-photo" :src="getUserProfilePhoto" v-show="getUserProfilePhoto" />
+            <img class="wrapper__profile-photo" :src="getUserProfilePhoto" v-show="getUserProfilePhoto" />
             <p>
                 Мы проанализируем подписки с твоей страницы и передадим их в нейронную сеть
             </p>
@@ -30,11 +26,11 @@
                 </button>
             </div>
         </div>
-        <div class="attention" v-if="!isGettingUser">
+        <div class="wrapper__attention" v-if="!isGettingUser">
             <SvgNotice/>
             Сервис может не работать в режиме инкогнито
         </div>
-        <div class="wrapper wrapper-loader" v-else>
+        <div class="wrapper wrapper__loader" v-else>
             <h1>
                 {{ auth_status }}
             </h1>
@@ -276,7 +272,7 @@ const getUserProfilePhoto = computed(() => {
         }
     }
 
-    &-loader {
+    &__loader {
         align-items: center;
         justify-content: center;
         min-width: min(100%, 640px);
@@ -285,48 +281,48 @@ const getUserProfilePhoto = computed(() => {
             font-size: 32px;
         }
     }
-}
 
-.attention {
-    color: rgba(0, 0, 0, 0.60);
+    &__attention {
+        color: rgba(0, 0, 0, 0.60);
 
-    font-family: Inter;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.5px;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.5px;
 
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 12px;
 
-    width: min(100%, 562px);
-    margin-left: auto;
-    margin-right: auto;
-    
-    z-index: 999;
-    background: #ffffff;
-    border: 1px solid #E5F3FB;
-    border-radius: 32px;
-    padding: 16px 36px;
+        width: min(100%, 562px);
+        margin-left: auto;
+        margin-right: auto;
+        
+        z-index: 999;
+        background: #ffffff;
+        border: 1px solid #E5F3FB;
+        border-radius: 32px;
+        padding: 16px 36px;
 
-    box-shadow: 0px 4px 40px 0px rgba(10, 51, 75, 0.06);
+        box-shadow: 0px 4px 40px 0px rgba(10, 51, 75, 0.06);
 
-    svg {
-        min-width: 24px;
+        svg {
+            min-width: 24px;
+        }
     }
-}
 
-.profile-photo {
-    border-radius: 50%;
-    width: 96px;
-    height: 96px;
+    &__profile-photo {
+        border-radius: 50%;
+        width: 96px;
+        height: 96px;
 
-    @media (max-width: 768px) {
-        width: 64px;
-        height: 64px;
+        @media (max-width: 768px) {
+            width: 64px;
+            height: 64px;
+        }
     }
 }
 </style>

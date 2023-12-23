@@ -25,7 +25,7 @@
                     Группа определялась на основании твоих подписок.
                 </p>
             </div>
-            <div class="list">
+            <div class="results__list">
                 <div class="wrapper" v-for="(group, index) in getGroups">
                     <div class="wrapper__title">
                         <span class="">{{ Intl.NumberFormat("ru-RU").format(group.probability * 100) }}%</span>
@@ -224,16 +224,6 @@ onNuxtReady(() => {
     }
 }
 
-.list {
-    display: flex;
-    flex-direction: row;
-    gap: 32px;
-    flex-wrap: wrap;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
 .bg {
     position: fixed;
     bottom: 0;
@@ -271,6 +261,16 @@ onNuxtReady(() => {
     @media (max-width: 768px) {
         gap: 32px;
         padding: 16px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
     }
 }
 </style>

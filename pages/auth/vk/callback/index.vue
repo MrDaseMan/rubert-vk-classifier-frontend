@@ -6,8 +6,6 @@
 </template>
 
 <script setup>
-import * as VKID from '@vkid/sdk/dist-sdk/umd/index';
-
 definePageMeta({
     layout: 'centered',
 })

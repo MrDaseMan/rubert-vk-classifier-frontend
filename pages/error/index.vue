@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         <h1>Произошла ошибка</h1>
-        <div class="error-text">{{ getError }}</div>
+        <div class="wrapper__error-text">{{ getError }}</div>
         <button @click="$router.push('/')">На главную</button>
     </div>
 </template>
@@ -27,7 +27,9 @@ const getError = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.error-text {
-    text-wrap: anywhere;
+.wrapper {
+    &__error-text {
+        text-wrap: anywhere;
+    }
 }
 </style>

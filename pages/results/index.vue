@@ -1,14 +1,9 @@
 <template>
-    <div>
-        <Transition name="notification-slide-fade">
-            <div class="notify" v-if="isNotificationVisible">
-                {{ notification_text }}
-            </div>
-        </Transition>
+    <div class="info">
+        <UINotification :isVisible="isNotificationVisible" :isError="false" :error_text="notification_text"/>
         <div class="result">
             <h1>Возможно, тебе подойдёт</h1>
             <div class="wrapper" v-if="isLoaded">
-                <!-- <span>{{ getEduProgram }}</span> -->
                 <div class="wrapper__block">
                     <h2>Направление подготовки</h2>
                     <div class="wrapper__list">
@@ -35,8 +30,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- <p>Более подробно с направлениями подготовками, а также программами обучения вы сможете ознакомиться на сайте <a href="https://asu.edu.ru/sveden/education/" target="_blank">университета</a>.</p> -->
             </div>
             <div class="buttons" v-if="isDataExist">
                 <button @click="$router.push('/prediction')">

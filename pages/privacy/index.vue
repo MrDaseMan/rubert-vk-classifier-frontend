@@ -146,6 +146,26 @@
 <style lang="scss" scoped>
 .wrapper {
     width: 100%;
+
+    & > h1 {
+        font-size: 40px;
+        text-align: center;
+
+        @media (max-width: 768px) {
+            font-size: 30px;
+        }
+    }
+
+    & > p {
+        font-size: 20px;
+        text-align: start;
+
+        @media (max-width: 768px) {
+            font-size: 18px;
+        }
+
+        color: var(--yw-clr-black);
+    }
 }
 
 .content {
@@ -154,25 +174,5 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-h1 {
-    font-size: 40px;
-    text-align: center;
-
-    @media (max-width: 768px) {
-        font-size: 30px;
-    }
-}
-
-p {
-    font-size: 20px;
-    text-align: start;
-
-    @media (max-width: 768px) {
-        font-size: 18px;
-    }
-
-    color: var(--yw-clr-black);
 }
 </style>
