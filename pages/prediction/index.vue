@@ -28,7 +28,7 @@
             <div class="results__list">
                 <div class="wrapper" v-for="(group, index) in getGroups">
                     <div class="wrapper__title">
-                        <span class="">{{ Intl.NumberFormat("ru-RU").format(group.probability * 100) }}%</span>
+                        <span class="">{{ Intl.NumberFormat("ru-RU").format(getRealProbability(group.probability) * 100) }}%</span>
                         <h2>{{ group.group }}</h2>
                     </div>
                     <button @click="goToTest(index)" v-if="group.questions.length">Пройти тест</button>
@@ -58,6 +58,23 @@ const getUserName = computed(() => {
 const getGroups = computed(() => {
     return useGroup().value?.groups || [];
 });
+
+const getRealProbability = (probability) => {
+    // find the value of probability from 100%
+
+    console.log(probability);
+    let sum_probability = 0;
+
+    for (let index = 0; index < useGroup().value?.groups?.length; index++) {
+        sum_probability += useGroup().value.groups[index].probability;
+    }
+    console.log(sum_probability);
+
+    let real_probability = probability / sum_probability;
+
+
+    return real_probability;
+};
 
 const isLowPercent = computed(() => {
     let isLow = true;
