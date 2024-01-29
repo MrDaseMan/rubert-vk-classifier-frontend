@@ -62,15 +62,13 @@ const getGroups = computed(() => {
 const getRealProbability = (probability) => {
     // find the value of probability from 100%
 
-    console.log(probability);
     let sum_probability = 0;
 
     for (let index = 0; index < useGroup().value?.groups?.length; index++) {
-        sum_probability += useGroup().value.groups[index].probability;
+        sum_probability += parseInt(useGroup().value.groups[index].probability);
     }
-    console.log(sum_probability);
 
-    let real_probability = probability / sum_probability;
+    let real_probability = parseInt(probability) / sum_probability;
 
 
     return real_probability;
