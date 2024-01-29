@@ -65,10 +65,10 @@ const getRealProbability = (probability) => {
     let sum_probability = 0;
 
     for (let index = 0; index < useGroup().value?.groups?.length; index++) {
-        sum_probability += parseInt(useGroup().value.groups[index].probability);
+        sum_probability += parseFloat(useGroup().value.groups[index].probability);
     }
 
-    let real_probability = parseInt(probability) / sum_probability;
+    let real_probability = parseFloat(probability) / sum_probability;
 
 
     return real_probability;
