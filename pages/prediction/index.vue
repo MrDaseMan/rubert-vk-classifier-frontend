@@ -76,8 +76,15 @@ const getRealProbability = (probability) => {
 
 const isLowPercent = computed(() => {
     let isLow = true;
+
+    let sum_probability = 0;
+
     for (let index = 0; index < useGroup().value?.groups?.length; index++) {
-        if(parseFloat(useGroup().value.groups[index].probability) >= 0.25) {
+        sum_probability += parseFloat(useGroup().value.groups[index].probability);
+    }
+
+    for (let index = 0; index < useGroup().value?.groups?.length; index++) {
+        if(parseFloat(useGroup().value.groups[index].probability) / sum_probability >= 0.5) {
             isLow = false;
         }
     }
