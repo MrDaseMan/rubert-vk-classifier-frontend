@@ -70,8 +70,8 @@ const getRealProbability = (probability) => {
 
     let real_probability = parseFloat(probability) / sum_probability;
 
-
-    return real_probability;
+    // return integer part of real probability
+    return Math.floor(real_probability * 100) / 100;
 };
 
 const isLowPercent = computed(() => {
