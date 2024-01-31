@@ -64,14 +64,24 @@ const getRealProbability = (probability) => {
 
     let sum_probability = 0;
 
+    let bigger = {
+        value: 0,
+        isCurrent: false
+    }
+
     for (let index = 0; index < useGroup().value?.groups?.length; index++) {
+        if(parseFloat(useGroup().value.groups[index].probability) > bigger.value) {
+            bigger.value = parseFloat(useGroup().value.groups[index].probability);
+            if(probability === useGroup().value.groups[index].probability)
+                bigger.isCurrent = true;
+        }
         sum_probability += parseFloat(useGroup().value.groups[index].probability);
     }
 
     let real_probability = parseFloat(probability) / sum_probability;
 
     // return integer part of real probability
-    return Math.floor(real_probability * 100) / 100;
+    return Math.ceil(real_probability * 100) / 100;
 };
 
 const isLowPercent = computed(() => {
