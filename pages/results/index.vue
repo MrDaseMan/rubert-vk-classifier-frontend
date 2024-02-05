@@ -3,12 +3,21 @@
         <UINotification :isVisible="isNotificationVisible" :isError="false" :error_text="notification_text"/>
         <div class="result">
             <h1>Возможно, тебе подойдёт</h1>
-            <div class="wrapper" v-if="isLoaded">
+            <div class="wrapper" v-if="isLoaded" v-for="spec in getSpecs">
                 <div class="wrapper__block">
                     <h2>Направление подготовки</h2>
                     <div class="wrapper__list">
                         <div class="wrapper__list__item">
-                            {{ getEduProgram }}
+                            {{ getEduProgram }} ({{ spec.isOchno ? "очно" : "" }}, {{ spec.isZaochno ? "заочно" : "" }}, {{ spec.is_ochzaoch ? "очно-заочно" : "" }})
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wrapper__block" v-if="spec.profile">
+                    <h2>Профиль</h2>
+                    <div class="wrapper__list">
+                        <div class="wrapper__list__item">
+                            {{ spec.profile }}
                         </div>
                     </div>
                 </div>
@@ -25,7 +34,16 @@
                 <div class="wrapper__block">
                     <h2>Предметы ЕГЭ</h2>
                     <div class="wrapper__list">
-                        <div class="wrapper__list__item" v-for="subject in getSubjects">
+                        <div class="wrapper__list__item" v-for="subject in spec.subjects_ege">
+                            {{ subject.subject }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wrapper__block">
+                    <h2>Предметы СПО</h2>
+                    <div class="wrapper__list">
+                        <div class="wrapper__list__item" v-for="subject in spec.subjects_spo">
                             {{ subject }}
                         </div>
                     </div>
@@ -50,6 +68,7 @@
 const getEduProgram = computed(() => useResults().value?.edu_program || "");
 const getSubjects = computed(() => useResults().value?.subjects || []);
 const getProfessions = computed(() => useResults().value?.professions || []);
+const getSpecs = computed(() => useResults().value?.profiles || []);
 
 const isLoaded = ref(false);
 
