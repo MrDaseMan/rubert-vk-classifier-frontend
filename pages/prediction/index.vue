@@ -59,28 +59,6 @@ const getGroups = computed(() => {
     return useGroup().value?.groups || [];
 });
 
-const normalizePercentageByNumber = (input) => {
-    const rounded = input.map(x => Math.floor(x));
-    const afterRoundSum = rounded.reduce((pre, curr) => pre + curr, 0);
-    const countMutableItems = rounded.filter(x => x >=1).length;
-    const errorRate = 100 - afterRoundSum;
-    
-    const deductPortion = Math.ceil(errorRate / countMutableItems);
-    
-    const biggest = [...rounded].sort((a, b) => b - a).slice(0, Math.min(Math.abs(errorRate), countMutableItems));
-    const result = rounded.map(x => {
-        const indexOfX = biggest.indexOf(x);
-        if (indexOfX >= 0) {
-            x += deductPortion;
-            console.log(biggest)
-            biggest.splice(indexOfX, 1);
-            return x;
-        }
-        return x;
-    });
-    return result;
-}
-
 const getRealProbability = (index) => {
     // find the value of probability from 100%
 
@@ -92,11 +70,10 @@ const getRealProbability = (index) => {
 
     let real_probabilities = [];
     for (let index = 0; index < useGroup().value?.groups?.length; index++) {
-        real_probabilities.push((parseFloat(useGroup().value.groups[index].probability) / sum_probability) * 100);
+        real_probabilities.push(parseFloat(useGroup().value.groups[index].probability) / sum_probability);
     }
 
-    // return integer part of real probability
-    return normalizePercentageByNumber(real_probabilities)[index];
+    return real_probabilities[index];
 };
 
 const isLowPercent = computed(() => {
