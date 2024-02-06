@@ -59,12 +59,26 @@ const getGroups = computed(() => {
     return useGroup().value?.groups || [];
 });
 
-function normalize(l, target=100) {
-    var off = target - _.reduce(l, function(acc, x) { return acc + Math.round(x) }, 0);
-    return _.chain(l).
-            sortBy(function(x) { return Math.round(x) - x }).
-            map(function(x, i) { return Math.round(x) + (off > i) - (i >= (l.length + off)) }).
-            value();
+const normalizePercentageByNumber = (input) => {
+    const rounded = input.map(x => Math.floor(x));
+    const afterRoundSum = rounded.reduce((pre, curr) => pre + curr, 0);
+    const countMutableItems = rounded.filter(x => x >=1).length;
+    const errorRate = 100 - afterRoundSum;
+    
+    const deductPortion = Math.ceil(errorRate / countMutableItems);
+    
+    const biggest = [...rounded].sort((a, b) => b - a).slice(0, Math.min(Math.abs(errorRate), countMutableItems));
+    const result = rounded.map(x => {
+        const indexOfX = biggest.indexOf(x);
+        if (indexOfX >= 0) {
+            x += deductPortion;
+            console.log(biggest)
+            biggest.splice(indexOfX, 1);
+            return x;
+        }
+        return x;
+    });
+    return result;
 }
 
 const getRealProbability = (index) => {
@@ -82,7 +96,7 @@ const getRealProbability = (index) => {
     }
 
     // return integer part of real probability
-    return normalize(real_probabilities, 100)[index];
+    return normalizePercentageByNumber(real_probabilities, 100)[index];
 };
 
 const isLowPercent = computed(() => {
