@@ -28,7 +28,7 @@
             <div class="results__list">
                 <div class="wrapper" v-for="(group, index) in getGroups">
                     <div class="wrapper__title">
-                        <span class="">{{ Intl.NumberFormat("ru-RU").format(getRealProbability(group.probability) * 100) }}%</span>
+                        <span class="">{{ Intl.NumberFormat("ru-RU").format(getRealProbability(index) * 100) }}%</span>
                         <h2>{{ group.group }}</h2>
                     </div>
                     <button @click="goToTest(index)" v-if="group.questions.length">Пройти тест</button>
@@ -59,7 +59,15 @@ const getGroups = computed(() => {
     return useGroup().value?.groups || [];
 });
 
-const getRealProbability = (probability) => {
+function normalize(l, target=100) {
+    var off = target - _.reduce(l, function(acc, x) { return acc + Math.round(x) }, 0);
+    return _.chain(l).
+            sortBy(function(x) { return Math.round(x) - x }).
+            map(function(x, i) { return Math.round(x) + (off > i) - (i >= (l.length + off)) }).
+            value();
+}
+
+const getRealProbability = (index) => {
     // find the value of probability from 100%
 
     let sum_probability = 0;
@@ -78,10 +86,13 @@ const getRealProbability = (probability) => {
         sum_probability += parseFloat(useGroup().value.groups[index].probability);
     }
 
-    let real_probability = parseFloat(probability) / sum_probability;
+    let real_probabilities = [];
+    for (let index = 0; index < useGroup().value?.groups?.length; index++) {
+        real_probabilities.push(parseFloat(useGroup().value.groups[index].probability) / sum_probability);
+    }
 
     // return integer part of real probability
-    return Math.ceil(real_probability * 100) / 100;
+    return normalize(real_probabilities, 100)[index];
 };
 
 const isLowPercent = computed(() => {
