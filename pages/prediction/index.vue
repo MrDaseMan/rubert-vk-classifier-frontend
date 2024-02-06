@@ -72,17 +72,7 @@ const getRealProbability = (index) => {
 
     let sum_probability = 0;
 
-    let bigger = {
-        value: 0,
-        isCurrent: false
-    }
-
     for (let index = 0; index < useGroup().value?.groups?.length; index++) {
-        if(parseFloat(useGroup().value.groups[index].probability) > bigger.value) {
-            bigger.value = parseFloat(useGroup().value.groups[index].probability);
-            if(probability === useGroup().value.groups[index].probability)
-                bigger.isCurrent = true;
-        }
         sum_probability += parseFloat(useGroup().value.groups[index].probability);
     }
 
