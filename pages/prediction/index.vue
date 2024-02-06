@@ -92,7 +92,7 @@ const getRealProbability = (index) => {
 
     let real_probabilities = [];
     for (let index = 0; index < useGroup().value?.groups?.length; index++) {
-        real_probabilities.push((parseFloat(useGroup().value.groups[index].probability) / sum_probability));
+        real_probabilities.push((parseFloat(useGroup().value.groups[index].probability) / sum_probability) * 100);
     }
 
     // return integer part of real probability
