@@ -8,7 +8,7 @@
                     <h2>Направление подготовки</h2>
                     <div class="wrapper__list">
                         <div class="wrapper__list__item">
-                            {{ getEduProgram }} ({{ spec.is_ochno ? "очно, " : "" }}{{ spec.is_zaochno ? "заочно, " : "" }}{{ spec.is_ochzaoch ? "очно-заочно" : "" }})
+                            {{ getEduProgram }} ({{ getEduSpec }})
                         </div>
                     </div>
                 </div>
@@ -69,6 +69,21 @@ const getEduProgram = computed(() => useResults().value?.edu_program || "");
 const getSubjects = computed(() => useResults().value?.subjects || []);
 const getProfessions = computed(() => useResults().value?.professions || []);
 const getSpecs = computed(() => useResults().value?.profiles || []);
+const getEduSpec = computed(() => {
+    let specs = [];
+    if (useResults().value?.spec?.is_ochno) {
+        specs.push("очно");
+    }
+    if (useResults().value?.spec?.is_zaochno) {
+        specs.push("заочно");
+    }
+    if (useResults().value?.spec?.is_ochzaoch) {
+        specs.push("очно-заочно");
+    }
+
+    // return specs divided by commas
+    return specs.join(", ");
+})
 
 const isLoaded = ref(false);
 
