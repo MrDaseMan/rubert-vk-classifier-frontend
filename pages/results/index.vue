@@ -8,7 +8,7 @@
                     <h2>Направление подготовки</h2>
                     <div class="wrapper__list">
                         <div class="wrapper__list__item">
-                            {{ getEduProgram }} ({{ spec.isOchno ? "очно, " : "" }}{{ spec.isZaochno ? "заочно, " : "" }}{{ spec.is_ochzaoch ? "очно-заочно" : "" }})
+                            {{ getEduProgram }} ({{ spec.is_ochno ? "очно, " : "" }}{{ spec.is_zaochno ? "заочно, " : "" }}{{ spec.is_ochzaoch ? "очно-заочно" : "" }})
                         </div>
                     </div>
                 </div>
