@@ -240,7 +240,7 @@ ul {
                         // display on center of circle
                         content: 'Предмет по выбору';
                         transform: translate3d(calc(-50% + 8px), -3px, 0);
-                        top: -38px;
+                        top: -36px;
 
                         background: var(--yw-clr-blue);
 
@@ -306,7 +306,7 @@ ul {
                         // display on center of circle
                         content: 'Обязательный предмет';
                         transform: translate3d(calc(-50% + 8px), -3px, 0);
-                        top: -38px;
+                        top: -36px;
 
                         background: var(--yw-clr-red);
 
