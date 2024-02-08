@@ -161,6 +161,7 @@ onNuxtReady(() => {
     z-index: 10;
 
     width: min(100%, 618px);
+    min-width: min(100%, 618px);
 
     @media (max-width: 480px) {
         margin-top: 64px;
@@ -203,6 +204,7 @@ onNuxtReady(() => {
 
 .wrapper {
     width: min(100%, 514px);
+    min-width: min(100%, 514px);
     min-height: 391px;
     margin: 0;
     padding: 32px 36px;

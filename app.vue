@@ -78,6 +78,7 @@ onMounted(() => {
 
     background: #FFF;
     width: min(100%, 640px);
+    min-width: min(100%, 640px);
 
     box-shadow: 0px 4px 40px 0px rgba(10, 51, 75, 0.06);
 
