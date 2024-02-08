@@ -36,6 +36,7 @@
                     <div class="wrapper__list">
                         <div class="wrapper__list__item" v-for="subject in spec.subjects_ege">
                             {{ subject.subject }}
+                            <div :class="subject.is_required ? 'wrapper__list__item__marker--red' : 'wrapper__list__item__marker--blue'"></div>
                         </div>
                     </div>
                 </div>
@@ -209,6 +210,145 @@ ul {
                 /* 20.8px */
 
                 letter-spacing: -0.3px;
+            }
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+
+            &__marker {
+                &--blue {
+                    width: 16px;
+                    height: 16px;
+                    background: var(--yw-clr-blue);
+                    border-radius: 100%;
+
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        width: max-content;
+                        opacity: 0;
+                        transform: translate3d(calc(-50% + 8px), 0, 0);
+
+                        transition: opacity ease 0.3s, transform ease 0.3s;
+                    }
+
+                    &:hover::before {
+                        // display on center of circle
+                        content: 'Предмет по выбору';
+                        transform: translate3d(calc(-50% + 8px), -3px, 0);
+                        top: -28px;
+
+                        background: var(--yw-clr-blue);
+
+                        color: var(--yw-clr-white);
+                        font-size: 12px;
+                        font-weight: 700;
+
+                        padding: 4px 8px;
+                        border-radius: 4px;
+
+                        opacity: 1;
+
+                        transition: opacity ease 0.3s, transform ease 0.3s;
+                    }
+                    
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        transform: translate3d(0, 0, 0);
+
+                        opacity: 0;
+
+                        transition: opacity ease 0.3s, transform ease 0.3s;
+                    }
+
+                    &:hover::after {
+                        // triangle under before
+                        width: 0;
+                        height: 0;
+
+                        border-left: 8px solid transparent;
+                        border-right: 8px solid transparent;
+                        border-top: 8px solid var(--yw-clr-blue);
+
+                        transform: translate3d(0, -3px, 0);
+
+                        top: -8px;
+
+                        opacity: 1;
+                        transition: opacity ease 0.3s, transform ease 0.3s;
+                    }
+                }
+
+                &--red {
+                    width: 16px;
+                    height: 16px;
+                    background: var(--yw-clr-red);
+                    border-radius: 100%;
+
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        width: max-content;
+                        opacity: 0;
+                        transform: translate3d(calc(-50% + 8px), 0, 0);
+
+                        transition: opacity ease 0.3s, transform ease 0.3s;
+                    }
+
+                    &:hover::before {
+                        // display on center of circle
+                        content: 'Обязательный предмет';
+                        transform: translate3d(calc(-50% + 8px), -3px, 0);
+                        top: -28px;
+
+                        background: var(--yw-clr-red);
+
+                        color: var(--yw-clr-white);
+                        font-size: 12px;
+                        font-weight: 700;
+
+                        padding: 4px 8px;
+                        border-radius: 4px;
+
+                        opacity: 1;
+
+                        transition: opacity ease 0.3s, transform ease 0.3s;
+                    }
+                    
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        transform: translate3d(0, 0, 0);
+
+                        opacity: 0;
+
+                        transition: opacity ease 0.3s, transform ease 0.3s;
+                    }
+
+                    &:hover::after {
+                        // triangle under before
+                        width: 0;
+                        height: 0;
+
+                        border-left: 8px solid transparent;
+                        border-right: 8px solid transparent;
+                        border-top: 8px solid var(--yw-clr-red);
+
+                        transform: translate3d(0, -3px, 0);
+
+                        top: -8px;
+
+                        opacity: 1;
+                        transition: opacity ease 0.3s, transform ease 0.3s;
+                    }
+                }
             }
         }
     }
