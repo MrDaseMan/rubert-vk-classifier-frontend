@@ -249,7 +249,7 @@ ul {
                         font-weight: 700;
 
                         padding: 4px 8px;
-                        border-radius: 4px;
+                        border-radius: 16px;
 
                         opacity: 1;
 
@@ -315,7 +315,7 @@ ul {
                         font-weight: 700;
 
                         padding: 4px 8px;
-                        border-radius: 4px;
+                        border-radius: 16px;
 
                         opacity: 1;
 
