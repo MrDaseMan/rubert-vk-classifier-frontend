@@ -10,7 +10,7 @@
             </h1>
             <img class="wrapper__profile-photo" :src="getUserProfilePhoto" v-show="getUserProfilePhoto" />
             <p>
-                Мы проанализируем подписки с твоей страницы и передадим их в нейронную сеть
+                Мы проанализируем подписки с вашей страницы и передадим их в нейронную сеть
             </p>
             <button @click="auth" :disabled="isFetching" v-if="!getUser?.id">
                 <span v-if="!isFetching">Войти</span>
