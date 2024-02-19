@@ -2,7 +2,7 @@
     <div class="info">
         <UINotification :isVisible="isNotificationVisible" :isError="false" :error_text="notification_text"/>
         <div class="result">
-            <h1>Возможно, тебе подойдёт</h1>
+            <h1>Возможно, вам подойдёт</h1>
             <div class="wrapper" v-if="isLoaded" v-for="spec in getSpecs">
                 <div class="wrapper__block">
                     <h2>Направление подготовки</h2>

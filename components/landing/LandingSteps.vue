@@ -3,7 +3,7 @@
         <div class="steps__left">
             <div class="steps__block" ref="firstStepLeft">
                 <div class="steps__block__content">
-                    <h2>Авторизируйся через ВК</h2>
+                    <h2>Авторизируйтесь через ВК</h2>
                     <p>Мы соберём твои подписки и передадим их в нейросеть</p>
                 </div>
                 <div class="steps__block__number">
@@ -26,8 +26,8 @@
         <div class="steps__right">
             <div class="steps__block" ref="secondStepRight">
                 <div class="steps__block__content">
-                    <h2>Получи группу направлений</h2>
-                    <p>Основываясь на твоих подписках и интересах, нейросеть предложит наиболее подходящие группы направлений подготовки</p>
+                    <h2>Получите группу направлений</h2>
+                    <p>Основываясь на ваших подписках и интересах, нейросеть предложит наиболее подходящие группы направлений подготовки</p>
                 </div>
                 <div class="steps__block__number">
                     <LazySvgSecondStep/>
@@ -36,7 +36,7 @@
             </div>
             <div class="steps__block" ref="fourthStepRight">
                 <div class="steps__block__content">
-                    <h2>Получи результат</h2>
+                    <h2>Получите результат</h2>
                     <p>Направление подготовки бакалавриата<br>Список профессий<br>Предметы ЕГЭ</p>
                 </div>
                 <div class="steps__block__number">
@@ -48,7 +48,7 @@
         <div class="steps__together">
             <div class="steps__block" ref="firstStepTogether">
                 <div class="steps__block__content">
-                    <h2>Авторизируйся через ВК</h2>
+                    <h2>Авторизируйтесь через ВК</h2>
                     <p>Мы соберём твои подписки и передадим их в нейросеть</p>
                 </div>
                 <div class="steps__block__number">
@@ -58,8 +58,8 @@
             </div>
             <div class="steps__block" ref="secondStepTogether">
                 <div class="steps__block__content">
-                    <h2>Получи группу направлений</h2>
-                    <p>Основываясь на твоих подписках и интересах, нейросеть предложит наиболее подходящие группы направлений подготовки</p>
+                    <h2>Получите группу направлений</h2>
+                    <p>Основываясь на ваших подписках и интересах, нейросеть предложит наиболее подходящие группы направлений подготовки</p>
                 </div>
                 <div class="steps__block__number">
                     <LazySvgSecondStep/>
@@ -78,7 +78,7 @@
             </div>
             <div class="steps__block" ref="fourthStepTogether">
                 <div class="steps__block__content">
-                    <h2>Получи результат</h2>
+                    <h2>Получите результат</h2>
                     <p>Направление подготовки бакалавриата<br>Список профессий<br>Предметы ЕГЭ</p>
                 </div>
                 <div class="steps__block__number">

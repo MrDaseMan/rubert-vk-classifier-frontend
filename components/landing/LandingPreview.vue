@@ -7,8 +7,8 @@ import type { LazySvgStarts } from '#build/components';
         <canvas id="gradient-canvas"></canvas>
         <div class="preview__content">
             <div class="preview__content__info">
-                <h1>Твой путь в профессию</h1>
-                <h3>Открой свой путь с помощью искусственного интеллекта на нашем сайте профориентации</h3>
+                <h1>Ваш путь в профессию</h1>
+                <h3>Откройте свой путь с помощью искусственного интеллекта на нашем сайте профориентации</h3>
             </div>
             <button @click="$router.push('/auth')">
                 <LazySvgStars/>
