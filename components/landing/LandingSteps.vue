@@ -4,7 +4,7 @@
             <div class="steps__block" ref="firstStepLeft">
                 <div class="steps__block__content">
                     <h2>Авторизируйтесь через ВК</h2>
-                    <p>Мы соберём твои подписки и передадим их в нейросеть</p>
+                    <p>Мы соберём ваши подписки и передадим их в нейросеть</p>
                 </div>
                 <div class="steps__block__number">
                     <LazySvgFirstStep/>
@@ -49,7 +49,7 @@
             <div class="steps__block" ref="firstStepTogether">
                 <div class="steps__block__content">
                     <h2>Авторизируйтесь через ВК</h2>
-                    <p>Мы соберём твои подписки и передадим их в нейросеть</p>
+                    <p>Мы соберём ваши подписки и передадим их в нейросеть</p>
                 </div>
                 <div class="steps__block__number">
                     <LazySvgFirstStep/>
