@@ -2,6 +2,9 @@
 
 Фронтенд для работы с [сервером](https://github.com/maryshev3/YourWay), использующим модель [RuBert VK Classifier](https://github.com/MrDaseMan/rubert-vk-classifier).
 
+## Требования:
+Пакетный менеджер npm
+
 ## Начало работы
 
 dev server:
@@ -10,8 +13,8 @@ npm install
 npm run dev
 ```
 
-build
+build and run server:
 ```bash
 npm run build
-node dist/server/index.mjs
+node .output/server/index.mjs
 ```
