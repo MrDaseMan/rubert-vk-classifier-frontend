@@ -15,6 +15,7 @@ npm run dev
 
 build and run server:
 ```bash
+npm install
 npm run build
 node .output/server/index.mjs
 ```
