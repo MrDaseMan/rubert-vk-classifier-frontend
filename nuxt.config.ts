@@ -18,7 +18,7 @@ export default defineNuxtConfig({
         // },
         public: {
           apiUrl: "https://yourwayapi.ru", // There is must be API URL
-        },
+        }, 
     },
 
     app: {
