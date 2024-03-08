@@ -19,8 +19,8 @@ export const useVkGetUser = async (user_id: string) => {
                 'schools'
         },
         headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
+            'Content-Type': 'multipart/form-data',
+            'Accept': 'multipart/form-data',
             'Authorization': 'Bearer ' + useToken().get(),
         },
         onRequestError: ({ request, response, options, error }) => {
