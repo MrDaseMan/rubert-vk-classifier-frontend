@@ -12,7 +12,7 @@ onMounted(() => {
     VKID.Config.set({
         app: 51818236, // Идентификатор приложения.
         //if dev build set localhost else set urway.vercel.app
-        redirectUrl: `${process.env.NODE_ENV === 'development' ? "http://localhost:3000" : 'https://urway.vercel.app'}/auth/vk/callback`,
+        redirectUrl: `${process.env.NODE_ENV === 'development' ? "http://localhost:3000" : 'https://yourway-test.vercel.app'}/auth/vk/callback`,
     });
 
     VK.init({
