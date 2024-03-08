@@ -6,7 +6,7 @@ export const useVkGetStudying = async (user_id: string) => {
     let _response = await useFetch("/vkapi/method/users.get", {
         method: "GET",
         params: {
-            v: 5.131,
+            v: 5.199,
             extended: 1,
             user_id: user_id,
             fields: 

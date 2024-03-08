@@ -6,7 +6,7 @@ export const useVkGetGroups = async (user_id: string) => {
     let _response = await useFetch("/vkapi/method/groups.get", {
         method: "GET",
         params: {
-            v: 5.131,
+            v: 5.199,
             user_id: user_id,
             extended: 1
         },
