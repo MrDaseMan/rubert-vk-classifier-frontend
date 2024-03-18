@@ -17,7 +17,7 @@ export default defineNuxtConfig({
         //     port: "3000",
         // },
         public: {
-          apiUrl: "https://yourwayapi.ru", // There is must be API URL
+          apiUrl: process.env.URWAY_API_URL, // There is must be API URL
         }, 
     },
 
