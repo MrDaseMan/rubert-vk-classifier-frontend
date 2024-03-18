@@ -16,7 +16,7 @@ onMounted(() => {
     });
 
     VK.init({
-        apiId: process.env.VK_API_APP_ID
+        apiId: process.env.VK_OAUTH_APP_ID
     });
 })
 </script>
