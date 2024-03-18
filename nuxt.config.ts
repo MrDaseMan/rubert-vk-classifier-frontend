@@ -17,7 +17,11 @@ export default defineNuxtConfig({
         //     port: "3000",
         // },
         public: {
-          apiUrl: process.env.URWAY_API_URL, // There is must be API URL
+            apiUrl: process.env.URWAY_API_URL, // There is must be API URL
+            vkOAuthAppId: process.env.VK_OAUTH_APP_ID,
+            vkApiAppId: process.env.VK_API_APP_ID,
+            vkApiServiceKey: process.env.VK_API_SERVICE_KEY,
+            baseUrl: process.env.BASE_URL,
         }, 
     },
 

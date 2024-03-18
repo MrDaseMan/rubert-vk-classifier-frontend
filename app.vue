@@ -10,13 +10,13 @@ import * as VKID from '@vkid/sdk/dist-sdk/umd/index';
  
 onMounted(() => {
     VKID.Config.set({
-        app: process.env.VK_OAUTH_APP_ID, // Идентификатор приложения.
+        app: parseInt(useRuntimeConfig().public.vkOAuthAppId), // Идентификатор приложения.
         //if dev build set localhost else set urway.vercel.app
-        redirectUrl: `${process.env.NODE_ENV === 'development' ? "http://localhost:3000" : process.env.BASE_URL}/auth/vk/callback`,
+        redirectUrl: `${process.env.NODE_ENV === 'development' ? "http://localhost:3000" : useRuntimeConfig().public.baseUrl}/auth/vk/callback`,
     });
 
     VK.init({
-        apiId: 51793145
+        apiId: parseInt(useRuntimeConfig().public.vkApiAppId),
     });
 })
 </script>

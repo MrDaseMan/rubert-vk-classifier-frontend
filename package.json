@@ -17,6 +17,7 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@nuxtjs/dotenv": "^1.4.2",
     "@vkid/sdk": "^1.0.2"
   }
 }
