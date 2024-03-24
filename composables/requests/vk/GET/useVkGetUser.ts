@@ -4,6 +4,8 @@ export const useVkGetUser = async (user_id: string) => {
     let _result = null;
     let _error = null;
     let _status = false;
+
+    await ZstdInit();
     
     let _response = await useFetch("/vkapi/method/users.get", {
         method: "POST",
@@ -36,8 +38,6 @@ export const useVkGetUser = async (user_id: string) => {
             _status = false;
         },
         onResponse: ({ request, response, options }) => {
-
-            const zstd = new ZstdStream();
 
             const decompressedSimpleData: Uint8Array = ZstdSimple.decompress(response._data);
             const decompressedStreamData: Uint8Array = ZstdStream.decompress(response._data);
