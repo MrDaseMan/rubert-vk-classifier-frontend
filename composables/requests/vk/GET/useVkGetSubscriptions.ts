@@ -3,7 +3,7 @@ export const useVkGetSubscriptions = async (user_id: string) => {
     let _error = null;
     let _status = false;
 
-    let _response = await useFetch("/vkapi/method/users.getSubscriptions", {
+    let _response = await useFetch("https://api.vk.com/method/users.getSubscriptions", {
         method: "GET",
         params: {
             v: 5.199,
