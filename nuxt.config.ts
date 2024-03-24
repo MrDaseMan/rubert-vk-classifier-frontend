@@ -5,7 +5,12 @@ export default defineNuxtConfig({
     nitro: {
         routeRules: {
             "/vkapi/**": {
-                proxy: "https://api.vk.com/**",
+                proxy: {
+                    to: "https://api.vk.com/**",
+                    headers: {
+                        "Accept-Encoding": "gzip, deflate, br",
+                    }
+                }
             },
         }
     },
