@@ -5,7 +5,6 @@ export const useVkGetStudying = async (user_id: string) => {
 
     let _response = await useFetch("https://api.vk.com/method/users.get", {
         method: "GET",
-        mode: 'no-cors',
         params: {
             v: 5.199,
             extended: 1,
