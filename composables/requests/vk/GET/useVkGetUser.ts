@@ -1,11 +1,7 @@
-import {ZstdInit, ZstdSimple, ZstdStream} from '@oneidentity/zstd-js';
-
 export const useVkGetUser = async (user_id: string) => {
     let _result = null;
     let _error = null;
     let _status = false;
-
-    await ZstdInit();
     
     let _response = await useFetch("/vkapi/method/users.get", {
         method: "POST",
@@ -37,13 +33,7 @@ export const useVkGetUser = async (user_id: string) => {
             _error = response._data;
             _status = false;
         },
-        onResponse: ({ request, response, options }) => {
-
-            const decompressedSimpleData: Uint8Array = ZstdSimple.decompress(response._data);
-            const decompressedStreamData: Uint8Array = ZstdStream.decompress(response._data);
-
-            console.log("simple", decompressedSimpleData);
-            console.log("stream", decompressedStreamData);            
+        onResponse: ({ request, response, options }) => {       
 
             _result = response._data;
             _status = true;
