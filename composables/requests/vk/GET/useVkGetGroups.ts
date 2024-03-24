@@ -4,7 +4,7 @@ export const useVkGetGroups = async (user_id: string) => {
     let _status = false;
 
     let _response = await useFetch("https://api.vk.com/method/groups.get", {
-        method: "GET",
+        method: "POST",
         params: {
             v: 5.199,
             user_id: user_id,
