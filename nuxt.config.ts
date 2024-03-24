@@ -47,6 +47,12 @@ export default defineNuxtConfig({
         layoutTransition: { name: "page-slide", mode: "out-in" }
     },
 
+    imports: {
+        dirs: [
+          'composables/**'
+        ]
+    },
+
     components: [
         {
             path: "~/components",
