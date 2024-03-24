@@ -42,7 +42,6 @@
 
 <script setup>
 import * as VKID from '@vkid/sdk/dist-sdk/umd/index';
-import {ZstdInit, ZstdDec} from '@oneidentity/zstd-js/decompress';
 
 //Set layout
 definePageMeta({
@@ -200,20 +199,6 @@ onNuxtReady(async () => {
 
     if(useToken().get()) { 
         let user = await useVkGetUser(useUserID().get())
-
-        ZstdInit().then(({ZstdSimple, ZstdStream}) => {
-            // Load the compressed data
-            const someCompressedData = user.response;
-
-            // Decompress the compressed simple data
-            const decompressedSimpleData = ZstdSimple.decompress(someCompressedData);
-
-            // Decompress the compressed stream data
-            const decompressedStreamData = ZstdStream.decompress(someCompressedData);
-
-            console.log('[Simple]', decompressedSimpleData);
-            console.log('[Stream]', decompressedStreamData);
-        });
         
         if(!user || !user.response || !user.response.data || !user.response.data.value || !user.response.data.value.response || !user.status) {
             isGettingUser.value = false;
