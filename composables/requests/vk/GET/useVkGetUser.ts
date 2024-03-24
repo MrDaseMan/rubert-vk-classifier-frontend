@@ -3,7 +3,7 @@ export const useVkGetUser = async (user_id: string) => {
     let _error = null;
     let _status = false;
     
-    let _response = await useFetch("https://api.vk.com/method/users.get", {
+    let _response = await useFetch("/vkapi/method/users.get", {
         method: "POST",
         params: {
             v: 5.199,
