@@ -17,6 +17,7 @@ export const useVkGetStudying = async (user_id: string) => {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
             'Authorization': 'Bearer ' + useToken().get(),
+            'Accept-Encoding': 'gzip, deflate, br'
         },
         onRequestError: ({ request, response, options, error }) => {
             console.log("vk:studying.get:onRequestError", response || error);
