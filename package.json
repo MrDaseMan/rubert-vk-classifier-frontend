@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@nuxtjs/dotenv": "^1.4.2",
+    "@oneidentity/zstd-js": "^1.0.3",
     "@vkid/sdk": "^1.0.2"
   }
 }
