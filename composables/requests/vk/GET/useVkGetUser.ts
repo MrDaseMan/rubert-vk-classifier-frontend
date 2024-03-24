@@ -20,7 +20,8 @@ export const useVkGetUser = async (user_id: string) => {
         },
         headers: {
             'Content-Type': 'application/json',
-            'Accept': 'application/json',
+            'Accept': '
+            */*',
             'Authorization': 'Bearer ' + useToken().get(),
             'Accept-Encoding': 'gzip, deflate, br'
         },
