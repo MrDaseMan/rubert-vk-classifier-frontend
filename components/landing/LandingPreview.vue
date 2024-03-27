@@ -12,7 +12,7 @@ import type { LazySvgStarts } from '#build/components';
             </div>
             <button @click="$router.push('/auth')">
                 <LazySvgStars/>
-                Попробовать
+                Начать
             </button>
         </div>
     </div>

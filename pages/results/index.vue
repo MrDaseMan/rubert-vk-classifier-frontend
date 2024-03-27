@@ -49,6 +49,11 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- open link https://asu.edu.ru/Abitur/12770-bakalavriat.html -->
+                <button @click="window.open('https://asu.edu.ru/Abitur/12770-bakalavriat.html')">
+                    Хочу поступить
+                </button>
             </div>
             <div class="buttons" v-if="isDataExist">
                 <button @click="$router.push('/prediction')">
