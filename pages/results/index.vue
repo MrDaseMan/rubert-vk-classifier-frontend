@@ -51,8 +51,8 @@
                 </div>
 
                 <!-- open link https://asu.edu.ru/Abitur/12770-bakalavriat.html -->
-                <button @click="window.open('https://asu.edu.ru/Abitur/12770-bakalavriat.html')">
-                    Хочу поступить
+                <button @click="openLink('https://asu.edu.ru/Abitur/12770-bakalavriat.html')">
+                    Хочу поступить в АГУ
                 </button>
             </div>
             <div class="buttons" v-if="isDataExist">
@@ -134,6 +134,10 @@ const storeInUrl = () => {
 definePageMeta({
     layout: 'centered',
 })
+
+const openLink = (link) => {
+    window.open(link, '_blank');
+}
 </script>
 
 <style lang="scss" scoped>
