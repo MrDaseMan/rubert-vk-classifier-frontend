@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
         {
-            name: 'YourWayFrontend',
+            name: 'urway-frontend',
             port: '3000',
             exec_mode: 'cluster',
             instances: 'max',

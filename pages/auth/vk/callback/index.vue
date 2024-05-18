@@ -16,7 +16,7 @@ onMounted(async () => {
 
         // post token and uuid in backend
         let result = await usePostAccessToken(query.token, query.uuid);
-        console.log("result", result, "query", query);
+
         if (result.status && result.result.response) {
             useUser().value = query.user;
             useToken().set(result.result.response.access_token, result.result.response.expires_in);
