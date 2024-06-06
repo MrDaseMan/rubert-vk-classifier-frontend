@@ -20,3 +20,11 @@ services:
     expose:
       - '3000'
     restart: always
+    env_file:
+      - .env
+    environment:
+      - VK_OAUTH_APP_ID=${VK_OAUTH_APP_ID}
+      - VK_API_APP_ID=${VK_API_APP_ID}
+      - VK_API_SERVICE_KEY=${VK_API_SERVICE_KEY}
+      - BASE_URL=${BASE_URL}
+      - URWAY_API_URL=${URWAY_API_URL}
