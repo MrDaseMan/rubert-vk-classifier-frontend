@@ -2,19 +2,6 @@ version: "3.3"
 # Указываем раздел со связанными сервисами
 
 services:
-  nginx:
-    depends_on:
-      - yw-frontend
-    image: nginx:latest
-    ports:
-      - '80:80'
-    volumes:
-      # Заменить на свой nginx конфиг
-      - ./nginx:/etc/nginx/conf.d
-      # Монтируем папку с логами на хост машину для более удобного доступа
-      - ./logs:/var/log/nginx/
-    restart: always
-
   yw-frontend:
     build: ./
     expose:
@@ -28,3 +15,9 @@ services:
       - VK_API_SERVICE_KEY=${VK_API_SERVICE_KEY}
       - BASE_URL=${BASE_URL}
       - URWAY_API_URL=${URWAY_API_URL}
+    networks:
+      - back_front_nginx
+
+networks:
+  back_front_nginx:
+    external: true
