@@ -2,10 +2,9 @@ version: "3.3"
 # Указываем раздел со связанными сервисами
 
 services:
-  # Раскомментировать, если нужно использовать nginx
   nginx:
     depends_on:
-      - nuxt
+      - yw-frontend
     image: nginx:latest
     ports:
       - '80:80'
@@ -16,7 +15,7 @@ services:
       - ./logs:/var/log/nginx/
     restart: always
 
-  nuxt:
+  yw-frontend:
     build: ./
     expose:
       - '3000'
